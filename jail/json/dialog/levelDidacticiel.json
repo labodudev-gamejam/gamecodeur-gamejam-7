@@ -1,0 +1,206 @@
+{
+  "dialog":
+  [
+    {
+      "rect": {
+        "width": 500,
+        "height": 120
+      },
+      "text": {
+        "x": 0,
+        "y": 0,
+        "string": "Hmm.. Je crois bien avoir anéanti la Terre... Navré, vraiment navré!",
+        "backLineSpecial": true
+      }
+    },
+    {
+      "rect": {
+        "width": 500,
+        "height": 80
+      },
+      "text": {
+        "x": 0,
+        "y": 0,
+        "string": "3..2..1 *explosion* (Terre anéantite).",
+        "backLineSpecial": true
+      }
+    },
+    {
+      "rect": {
+        "width": 500,
+        "height": 200
+      },
+      "text": {
+        "x": 0,
+        "y": 0,
+        "string": "Oh je vais encore avoir des problèmes.. misérable extra-terrestre que je suis! Créateur d'étoile, ce n'était vraiment pas ma vocation!",
+        "backLineSpecial": true
+      }
+    },
+    {
+      "rect": {
+        "width": 500,
+        "height": 160
+      },
+      "text": {
+        "x": 0,
+        "y": 0,
+        "string": "Moi qui espérais rentrer tôt. On dirait bien que je vais devoir faire des heures supplémentaires... Roh!",
+        "backLineSpecial": true
+      }
+    },
+    {
+      "rect": {
+        "width": 500,
+        "height": 80
+      },
+      "text": {
+        "x": 0,
+        "y": 0,
+        "string": "BIP.. BIP (Téléphone)",
+        "backLineSpecial": true
+      }
+    },
+    {
+      "rect": {
+        "width": 500,
+        "height": 80
+      },
+      "text": {
+        "x": 0,
+        "y": 0,
+        "string": "-..."
+      }
+    },
+    {
+      "rect": {
+        "width": 500,
+        "height": 80
+      },
+      "text": {
+        "x": 0,
+        "y": 0,
+        "string": "-Un problème vous dites ?",
+        "backLineSpecial": true
+      }
+    },
+    {
+      "rect": {
+        "width": 500,
+        "height": 80
+      },
+      "text": {
+        "x": 0,
+        "y": 0,
+        "string": "-...",
+        "backLineSpecial": true
+      }
+    },
+    {
+      "rect": {
+        "width": 500,
+        "height": 160
+      },
+      "text": {
+        "x": 0,
+        "y": 0,
+        "string": "-Hum... Il se pourrait que ce soit moi... J'ai, hum... par erreur hein! hum... déclenché le... le... le lanceur d'étoile ...",
+        "backLineSpecial": true
+      }
+    },
+    {
+      "rect": {
+        "width": 500,
+        "height": 80
+      },
+      "text": {
+        "x": 0,
+        "y": 0,
+        "string": "-...",
+        "backLineSpecial": true
+      }
+    },
+    {
+      "rect": {
+        "width": 500,
+        "height": 120
+      },
+      "text": {
+        "x": 0,
+        "y": 0,
+        "string": "-Oui maître... Mais hum.. Je ne sais pas créer une Terre... Je suis créateur d'étoile moi !",
+        "backLineSpecial": true
+      }
+    },
+    {
+      "rect": {
+        "width": 500,
+        "height": 80
+      },
+      "text": {
+        "x": 0,
+        "y": 0,
+        "string": "-...",
+        "backLineSpecial": true
+      }
+    },
+    {
+      "rect": {
+        "width": 500,
+        "height": 120
+      },
+      "text": {
+        "x": 0,
+        "y": 0,
+        "string": "-Le créateur de Vie Terrestre. Oh... Bien maître !...",
+        "backLineSpecial": true
+      }
+    },
+    {
+      "rect": {
+        "width": 500,
+        "height": 80
+      },
+      "text": {
+        "x": 0,
+        "y": 0,
+        "string": "Alors... Où est passée la notice ?... Là !",
+        "backLineSpecial": true
+      }
+    },
+    {
+      "image": {
+        "x": 0,
+        "y": -40,
+        "name": "helpCorpsEtCommande"
+      },
+      "rect": {
+        "width": 900,
+        "height": 400
+      },
+      "text": {
+        "x": 20,
+        "y": 200,
+        "string": "Assembler un humain\n1. Humain à recréer\n2. Cliquer pour prendre le corps et commencer l'assemblage \n3. Cliquer pour envoyer l'humain recréé sur la Terre",
+        "backLineSpecial": false
+      }
+    },
+    {
+      "image": {
+        "x": 0,
+        "y": -40,
+        "name": "helpPoubelle"
+      },
+      "rect": {
+        "width": 480,
+        "height": 252
+      },
+      "text": {
+        "x": 130,
+        "y": 0,
+        "string": "Cliquer sur la poubelle\nen cas d'erreur.",
+        "backLineSpecial": false
+      }
+    }
+  ]
+}
