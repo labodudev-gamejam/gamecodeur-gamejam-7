@@ -40,10 +40,10 @@ module EventMouse {
 					this.pressedClics['right'] = true;
 					break;
 			}
-
-      if (SceneManager.Manager.currentScene && SceneManager.Manager.currentScene.dialogManager) {
-        SceneManager.Manager.currentScene.dialogManager.MouseDown(event);
-      }
+      // 
+      // if (SceneManager.Manager.currentScene && SceneManager.Manager.currentScene.dialogManager) {
+      //   // SceneManager.Manager.currentScene.dialogManager.MouseDown(event);
+      // }
 
       this.isClicked = true;
     };

@@ -1,24 +1,9 @@
-/**
-Créer par Jimmy Latour, 2016
-http://labodudev.fr
-*/
 var Data;
 (function (Data) {
     var Sounds = (function () {
         function Sounds() {
         }
         Sounds.Load = function (cb) {
-            Data.Sounds
-                .AddSound("ambiant", "jail/sounds/ambiant.mp3", 1)
-                .AddSound("orderPop", "jail/sounds/orderPop.mp3", 1)
-                .AddSound("joinOk", "jail/sounds/joinOk.mp3", 1)
-                .AddSound("send", "jail/sounds/send.mp3", 1)
-                .AddSound("poubelle", "jail/sounds/poubelle.mp3", 1)
-                .AddSound("takeBody", "jail/sounds/takeBody.mp3", 1)
-                .AddSound("countdown", "jail/sounds/countdown.mp3", 3)
-                .AddSound("timer", "jail/sounds/timer.mp3", 1)
-                .AddSound("wrong", "jail/sounds/wrong.mp3", 1);
-            this.PlaySound("ambiant", true);
             cb();
         };
         Sounds.AddSound = function (name, src, maxChannels) {
@@ -45,7 +30,7 @@ var Data;
         };
         Sounds.sounds = [];
         return Sounds;
-    })();
+    }());
     Data.Sounds = Sounds;
 })(Data || (Data = {}));
 ;

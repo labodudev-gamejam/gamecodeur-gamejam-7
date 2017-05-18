@@ -17,22 +17,6 @@ module Data {
     }
 
     static LoadJSON(cb: () => void):void {
-      Data.JSONLoader.Exec('jail/json/bodySpawn.json', (data: Array<any>) => {
-        Data.Object.bodiesSpawn = data;
-
-        Data.JSONLoader.Exec('jail/json/orderSpawn.json', (data: Array<any>) => {
-          Data.Object.ordersSpawn = data;
-
-          Data.JSONLoader.Exec('jail/json/loadBodies.json', (data: Array<any>) => {
-            Data.Object.bodies = data;
-
-            Data.JSONLoader.Exec('jail/json/loadElements.json', (data: Array<any>) => {
-              Data.Object.humanParts = data;
-              cb();
-            });
-          });
-        });
-      });
     }
   }
 }

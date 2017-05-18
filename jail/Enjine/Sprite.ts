@@ -95,11 +95,11 @@ class Sprite {
   }
 
   public SetCollider():void {
-    if (this.zone && this.zone.collider) {
-      for (var key in this.zone.collider) {
-        this.collidersPoint[key] = new PointCollider(this.zone.collider[key].x, this.zone.collider[key].y);
-      }
-    }
+    // if (this.zone && this.zone.collider) {
+    //   for (var key in this.zone.collider) {
+    //     this.collidersPoint[key] = new PointCollider(this.zone.collider[key].x, this.zone.collider[key].y);
+    //   }
+    // }
   }
 
   public SetOffset(offset:any):void {

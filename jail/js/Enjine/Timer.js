@@ -1,7 +1,3 @@
-/**
-Créer par Jimmy Latour, 2016
-http://labodudev.fr
-*/
 var Timer = (function () {
     function Timer(application) {
         var _this = this;
@@ -19,5 +15,5 @@ var Timer = (function () {
         this.application.Update(delta);
     };
     return Timer;
-})();
+}());
 //# sourceMappingURL=Timer.js.map

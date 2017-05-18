@@ -1,7 +1,3 @@
-/**
-Créer par Jimmy Latour, 2016
-http://labodudev.fr
-*/
 var SpriteManager = (function () {
     function SpriteManager() {
         this.listSprite = { "body": [], "head": [], "leg": [], "arml": [], "armr": [], "buttons": [], "staticImage": [], "clickableImage": [] };
@@ -42,5 +38,5 @@ var SpriteManager = (function () {
         }
     };
     return SpriteManager;
-})();
+}());
 //# sourceMappingURL=SpriteManager.js.map

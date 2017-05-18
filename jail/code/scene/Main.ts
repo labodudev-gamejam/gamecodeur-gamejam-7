@@ -27,6 +27,6 @@ class MainScene extends Scene {
 
   public ChangeScene():void {
     this.Clear();
-    SceneManager.Manager.SetScene(new EndScene(SceneManager.Manager.currentScene.orderManager));
+    // SceneManager.Manager.SetScene(new EndScene(SceneManager.Manager.currentScene.orderManager));
   }
 }

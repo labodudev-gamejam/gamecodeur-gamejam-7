@@ -8,18 +8,18 @@ module Data {
     static sounds: any = [];
 
     static Load(cb: () => void):void {
-      Data.Sounds
-        .AddSound("ambiant", "jail/sounds/ambiant.mp3", 1)
-        .AddSound("orderPop", "jail/sounds/orderPop.mp3", 1)
-        .AddSound("joinOk", "jail/sounds/joinOk.mp3", 1)
-        .AddSound("send", "jail/sounds/send.mp3", 1)
-        .AddSound("poubelle", "jail/sounds/poubelle.mp3", 1)
-        .AddSound("takeBody", "jail/sounds/takeBody.mp3", 1)
-        .AddSound("countdown", "jail/sounds/countdown.mp3", 3)
-        .AddSound("timer", "jail/sounds/timer.mp3", 1)
-        .AddSound("wrong", "jail/sounds/wrong.mp3", 1)
-
-        this.PlaySound("ambiant", true);
+      // Data.Sounds
+      //   .AddSound("ambiant", "jail/sounds/ambiant.mp3", 1)
+      //   .AddSound("orderPop", "jail/sounds/orderPop.mp3", 1)
+      //   .AddSound("joinOk", "jail/sounds/joinOk.mp3", 1)
+      //   .AddSound("send", "jail/sounds/send.mp3", 1)
+      //   .AddSound("poubelle", "jail/sounds/poubelle.mp3", 1)
+      //   .AddSound("takeBody", "jail/sounds/takeBody.mp3", 1)
+      //   .AddSound("countdown", "jail/sounds/countdown.mp3", 3)
+      //   .AddSound("timer", "jail/sounds/timer.mp3", 1)
+      //   .AddSound("wrong", "jail/sounds/wrong.mp3", 1)
+      //
+      //   this.PlaySound("ambiant", true);
         cb();
     }
 

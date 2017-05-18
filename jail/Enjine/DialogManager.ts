@@ -86,18 +86,16 @@ class DialogManager {
    * actuelle.
    */
   public NextDialog():void {
-    this.currentKeyDialog++;
-
-    if (this.currentKeyDialog >= this.dialogs.length) {
-      this.Clear();
-      delete SceneManager.Manager.currentScene.dialogManager;
-      delete SceneManager.Manager.currentScene.Start();
-    }
-    else {
-      this.dialogs[this.currentKeyDialog].currentChar = 0;
-      this.dialogs[this.currentKeyDialog].currentText = "";
-      this.dialogs[this.currentKeyDialog].done = false;
-    }
+    // this.currentKeyDialog++;
+    //
+    // if (this.currentKeyDialog >= this.dialogs.length) {
+    //   this.Clear();
+    // }
+    // else {
+    //   this.dialogs[this.currentKeyDialog].currentChar = 0;
+    //   this.dialogs[this.currentKeyDialog].currentText = "";
+    //   this.dialogs[this.currentKeyDialog].done = false;
+    // }
   }
 
   /**

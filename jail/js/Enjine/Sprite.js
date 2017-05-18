@@ -1,7 +1,3 @@
-/**
-Créer par Jimmy Latour, 2016
-http://labodudev.fr
-*/
 var Sprite = (function () {
     function Sprite(image, name, type, pos) {
         this.image = image;
@@ -66,15 +62,10 @@ var Sprite = (function () {
         this.movable = new Movable(speed, speedAngle);
     };
     Sprite.prototype.SetCollider = function () {
-        if (this.zone && this.zone.collider) {
-            for (var key in this.zone.collider) {
-                this.collidersPoint[key] = new PointCollider(this.zone.collider[key].x, this.zone.collider[key].y);
-            }
-        }
     };
     Sprite.prototype.SetOffset = function (offset) {
         this.offset = offset;
     };
     return Sprite;
-})();
+}());
 //# sourceMappingURL=Sprite.js.map

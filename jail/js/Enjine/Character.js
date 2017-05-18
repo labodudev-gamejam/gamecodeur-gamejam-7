@@ -1,12 +1,3 @@
-/**
-Créer par Jimmy Latour, 2016
-http://labodudev.fr
-Gères le personnage du jeu:
--Gères les différentes parties d'un personnage: Corps, Tête, Bras, Jambe.
--Gères la collision du corps vers les autres parties humaines.
--Gères le déplacement par rapport au curseur de la souris.
--Gères la rotation par rapport au clique de la souris, ou au clavier.
-*/
 var Character = (function () {
     function Character() {
         this.pos = {
@@ -28,5 +19,5 @@ var Character = (function () {
         delete this.pos;
     };
     return Character;
-})();
+}());
 //# sourceMappingURL=Character.js.map

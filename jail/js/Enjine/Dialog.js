@@ -1,9 +1,3 @@
-/**
-Créer par Jimmy Latour, 2016
-http://labodudev.fr
-Gères un dialogue
-Les dialogues sont paramétrés à l'aide d'un fichier JSON
-*/
 var Dialog = (function () {
     function Dialog(data, speedText) {
         var _this = this;
@@ -96,5 +90,5 @@ var Dialog = (function () {
         clearInterval(this.interval);
     };
     return Dialog;
-})();
+}());
 //# sourceMappingURL=Dialog.js.map
