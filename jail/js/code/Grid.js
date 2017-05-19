@@ -1,3 +1,7 @@
+/**
+Créer par Jimmy Latour, 2017
+http://jimmylatour.com
+*/
 var Grid = (function () {
     function Grid() {
         this.ships = [];
@@ -31,5 +35,5 @@ var Grid = (function () {
     Grid.prototype.Clear = function () {
     };
     return Grid;
-}());
+})();
 //# sourceMappingURL=Grid.js.map

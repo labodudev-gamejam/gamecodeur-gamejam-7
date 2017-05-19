@@ -1,3 +1,7 @@
+/**
+Créer par Jimmy Latour, 2016
+http://labodudev.fr
+*/
 var PointCollider = (function () {
     function PointCollider(localX, localY) {
         this.localX = localX;
@@ -25,5 +29,5 @@ var PointCollider = (function () {
         delete this.pos;
     };
     return PointCollider;
-}());
+})();
 //# sourceMappingURL=PointCollider.js.map

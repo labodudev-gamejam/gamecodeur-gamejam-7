@@ -1,3 +1,7 @@
+/**
+Créer par Jimmy Latour, 2016
+http://labodudev.fr
+*/
 var Data;
 (function (Data) {
     var Object = (function () {
@@ -14,9 +18,9 @@ var Data;
                 cb();
             });
         };
+        Object.ships = undefined;
         return Object;
-    }());
-    Object.ships = undefined;
+    })();
     Data.Object = Object;
 })(Data || (Data = {}));
 //# sourceMappingURL=Object.js.map

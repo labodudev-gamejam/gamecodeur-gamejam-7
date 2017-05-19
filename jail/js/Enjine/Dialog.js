@@ -1,6 +1,11 @@
+/**
+Créer par Jimmy Latour, 2016
+http://labodudev.fr
+Gères un dialogue
+Les dialogues sont paramétrés à l'aide d'un fichier JSON
+*/
 var Dialog = (function () {
     function Dialog(data, speedText) {
-        var _this = this;
         this.data = data;
         this.currentText = "";
         this.currentChar = 0;
@@ -8,15 +13,6 @@ var Dialog = (function () {
         this.lineHeight = 40;
         this.done = false;
         this.pos = { x: 0, y: 0 };
-        this.pos.x = data.text.x;
-        this.pos.y = data.text.y;
-        if (data.image) {
-            this.sprite = new Sprite(Data.Images.staticImages[data.image.name], data.image.name, undefined, {
-                x: data.image.x,
-                y: data.image.y
-            });
-        }
-        this.interval = setInterval(function () { _this.Update(); }, speedText);
     }
     Dialog.prototype.Update = function () {
         if (this.currentChar < this.data.text.string.length) {
@@ -90,5 +86,5 @@ var Dialog = (function () {
         clearInterval(this.interval);
     };
     return Dialog;
-}());
+})();
 //# sourceMappingURL=Dialog.js.map

@@ -1,33 +1,31 @@
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
+/**
+Créer par Jimmy Latour, 2017
+http://jimmylatour.com
+*/
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
 var Ship = (function (_super) {
     __extends(Ship, _super);
     function Ship(image, pos, zone) {
-        var _this = _super.call(this, image, pos) || this;
-        _this.image = image;
-        _this.pos = pos;
-        _this.zone = zone;
-        _this.grid = {
+        _super.call(this, image, pos);
+        this.image = image;
+        this.pos = pos;
+        this.zone = zone;
+        this.grid = {
             x: 0,
             y: 0
         };
-        _this.grid.x = pos.x;
-        _this.grid.y = pos.y;
+        this.grid.x = pos.x;
+        this.grid.y = pos.y;
         pos.x *= 100;
         pos.y *= 80;
-        return _this;
     }
     Ship.prototype.SetGridX = function (x) {
         this.grid.x = x;
-        this.pos.x = this.grid.x *= 100;
+        this.pos.x = this.grid.x * 100;
     };
     Ship.prototype.Update = function () {
     };
@@ -37,5 +35,5 @@ var Ship = (function (_super) {
     Ship.prototype.Clear = function () {
     };
     return Ship;
-}(Sprite));
+})(Sprite);
 //# sourceMappingURL=Ship.js.map

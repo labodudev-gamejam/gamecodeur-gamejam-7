@@ -93,7 +93,15 @@ class MainScene extends Scene {
 				middleShip.SetGridX ( 2 );
 			}
 		} else {
+			let currentShip: Ship = this.grid.GetElementInGrid( 0 );
+			let middleShip: Ship = this.grid.GetElementInGrid( 1 );
 
+			if (currentShip) {
+				currentShip.SetGridX( 1 );
+			}
+			if (middleShip) {
+				middleShip.SetGridX ( 0 );
+			}
 		}
 	}
 }

@@ -30,7 +30,7 @@ class Ship extends Sprite {
 
 		public SetGridX(x: number):void {
 			this.grid.x = x;
-			this.pos.x = this.grid.x *= 100;
+			this.pos.x = this.grid.x * 100;
 		}
 
   /**

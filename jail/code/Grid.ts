@@ -14,7 +14,6 @@ class Grid {
 	}
 
 	public GetElementInGrid(x: number):Ship {
-
 		for(var key in this.ships) {
 			if ( this.ships[key].grid.x == x ) {
 				return this.ships[key];

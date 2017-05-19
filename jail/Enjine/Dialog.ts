@@ -61,20 +61,20 @@ class Dialog {
    * @return {void}            nothing
    */
   constructor(public data: any, speedText: number) {
-    this.pos.x = data.text.x;
-    this.pos.y = data.text.y;
-
-    if (data.image) {
-      this.sprite = new Sprite(Data.Images.staticImages[data.image.name],
-                              data.image.name,
-                              undefined,
-                              {
-                                x: data.image.x,
-                                y: data.image.y
-                              });
-    }
-
-    this.interval = setInterval( () => { this.Update(); }, speedText );
+    // this.pos.x = data.text.x;
+    // this.pos.y = data.text.y;
+		//
+    // if (data.image) {
+    //   this.sprite = new Sprite(Data.Images.staticImages[data.image.name],
+    //                           data.image.name,
+    //                           undefined,
+    //                           {
+    //                             x: data.image.x,
+    //                             y: data.image.y
+    //                           });
+    // }
+		//
+    // this.interval = setInterval( () => { this.Update(); }, speedText );
   }
 
   private Update():void {

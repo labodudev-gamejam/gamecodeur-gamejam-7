@@ -1,3 +1,7 @@
+/**
+Créer par Jimmy Latour, 2016
+http://labodudev.fr
+*/
 var Data;
 (function (Data) {
     var Images = (function () {
@@ -27,12 +31,12 @@ var Data;
         Images.LoadStaticElement = function (cb) {
             cb();
         };
+        Images.spriteSheet = new Image();
+        Images.buttons = [];
+        Images.backgrounds = [];
+        Images.staticImages = [];
         return Images;
-    }());
-    Images.spriteSheet = new Image();
-    Images.buttons = [];
-    Images.backgrounds = [];
-    Images.staticImages = [];
+    })();
     Data.Images = Images;
 })(Data || (Data = {}));
 //# sourceMappingURL=Images.js.map
