@@ -4,22 +4,18 @@ http://labodudev.fr
 */
 
 class SpriteManager {
-  public listSprite: any = {"ships": []};
+  public listSprite: any = [];
   constructor() {}
 
   public Update(deltaTime: number):void {
-    for (var type in this.listSprite) {
-      for (var key in this.listSprite[type]) {
-        this.listSprite[type][key].Update(deltaTime);
-      }
+    for (var key in this.listSprite) {
+      this.listSprite[key].Update(deltaTime);
     }
   }
 
   public Draw(context: any):void {
-    for (var type in this.listSprite) {
-      for (var key in this.listSprite[type]) {
-        this.listSprite[type][key].Draw(context);
-      }
+    for (var key in this.listSprite) {
+      this.listSprite[key].Draw(context);
     }
   }
 
@@ -29,7 +25,7 @@ class SpriteManager {
    */
   Add(sprite: Sprite): void {
 		if (sprite) {
-	    this.listSprite[sprite.type].push(sprite);
+	    this.listSprite.push(sprite);
 		}
   }
 

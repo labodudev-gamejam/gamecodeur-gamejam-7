@@ -40,12 +40,12 @@ var EventMouse;
             this.isClicked = false;
         };
         ;
-        Mouse.pressedClics = { "left": false, "right": false };
-        Mouse.click = { x: 0, y: 0 };
-        Mouse.move = { x: 0, y: 0 };
-        Mouse.isClicked = false;
         return Mouse;
     }());
+    Mouse.pressedClics = { "left": false, "right": false };
+    Mouse.click = { x: 0, y: 0 };
+    Mouse.move = { x: 0, y: 0 };
+    Mouse.isClicked = false;
     EventMouse.Mouse = Mouse;
 })(EventMouse || (EventMouse = {}));
 //# sourceMappingURL=EventMouse.js.map

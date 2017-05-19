@@ -69,8 +69,8 @@ class Application {
     this.canvas = document.getElementById("canvas");
     global["canvas"] = this.canvas;
 
-		this.canvas.width = window.innerWidth;
-    this.canvas.height = window.innerHeight;
+		this.canvas.width = '300';
+    this.canvas.height = '800';
     global["width"] = this.canvas.width;
     global["height"] = this.canvas.height;
     // h for half

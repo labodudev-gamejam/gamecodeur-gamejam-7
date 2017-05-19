@@ -2,7 +2,8 @@ var global = {
     application: undefined,
     canvas: undefined,
     width: 0,
-    height: 0 };
+    height: 0
+};
 var Application = (function () {
     function Application() {
         var _this = this;
@@ -20,8 +21,8 @@ var Application = (function () {
     Application.prototype.LoadCanvas = function () {
         this.canvas = document.getElementById("canvas");
         global["canvas"] = this.canvas;
-        this.canvas.width = window.innerWidth;
-        this.canvas.height = window.innerHeight;
+        this.canvas.width = '300';
+        this.canvas.height = '800';
         global["width"] = this.canvas.width;
         global["height"] = this.canvas.height;
         global["hWidth"] = this.canvas.width / 2;

@@ -14,8 +14,6 @@ class Sprite {
   private collidersPoint: Array<PointCollider> = [];
 
   constructor(public image: any,
-              public name: string,
-              public type: string,
               public pos: any) {
   }
 
@@ -40,34 +38,20 @@ class Sprite {
         context.drawImage(this.image, this.pos.x, this.pos.y);
       }
     }
-
-    for (var key in this.collidersPoint) {
-      this.collidersPoint[key].Update(this.pos, this.angle);
-    }
   }
 
   public DrawSpriteSheet(context: any):void {
-    context.save();
-    context.translate(this.pos.x, this.pos.y);
-    context.rotate(this.angle);
-
     context.drawImage(
       this.image,
       this.zone.x,
       this.zone.y,
       this.zone.width,
       this.zone.height,
-      -(this.zone.width / 2) + this.offset.x,
-      -(this.zone.height / 2) + this.offset.y,
+      this.pos.x,
+      this.pos.y,
       this.zone.width,
       this.zone.height
     );
-
-    context.restore();
-    // for (var key in this.collidersPoint) {
-    //   this.collidersPoint[key].Draw(context);
-    // }
-
   }
 
   public Clear():void {

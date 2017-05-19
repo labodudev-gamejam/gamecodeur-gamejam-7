@@ -14,9 +14,9 @@ var Data;
                 cb();
             });
         };
-        Object.ships = undefined;
         return Object;
     }());
+    Object.ships = undefined;
     Data.Object = Object;
 })(Data || (Data = {}));
 //# sourceMappingURL=Object.js.map

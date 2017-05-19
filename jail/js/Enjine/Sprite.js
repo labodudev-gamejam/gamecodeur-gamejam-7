@@ -1,8 +1,6 @@
 var Sprite = (function () {
-    function Sprite(image, name, type, pos) {
+    function Sprite(image, pos) {
         this.image = image;
-        this.name = name;
-        this.type = type;
         this.pos = pos;
         this.offset = { x: 0, y: 0 };
         this.spriteManager = undefined;
@@ -32,16 +30,9 @@ var Sprite = (function () {
                 context.drawImage(this.image, this.pos.x, this.pos.y);
             }
         }
-        for (var key in this.collidersPoint) {
-            this.collidersPoint[key].Update(this.pos, this.angle);
-        }
     };
     Sprite.prototype.DrawSpriteSheet = function (context) {
-        context.save();
-        context.translate(this.pos.x, this.pos.y);
-        context.rotate(this.angle);
-        context.drawImage(this.image, this.zone.x, this.zone.y, this.zone.width, this.zone.height, -(this.zone.width / 2) + this.offset.x, -(this.zone.height / 2) + this.offset.y, this.zone.width, this.zone.height);
-        context.restore();
+        context.drawImage(this.image, this.zone.x, this.zone.y, this.zone.width, this.zone.height, this.pos.x, this.pos.y, this.zone.width, this.zone.height);
     };
     Sprite.prototype.Clear = function () {
         delete this.offset;

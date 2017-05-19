@@ -1,24 +1,20 @@
 var SpriteManager = (function () {
     function SpriteManager() {
-        this.listSprite = { "ships": [] };
+        this.listSprite = [];
     }
     SpriteManager.prototype.Update = function (deltaTime) {
-        for (var type in this.listSprite) {
-            for (var key in this.listSprite[type]) {
-                this.listSprite[type][key].Update(deltaTime);
-            }
+        for (var key in this.listSprite) {
+            this.listSprite[key].Update(deltaTime);
         }
     };
     SpriteManager.prototype.Draw = function (context) {
-        for (var type in this.listSprite) {
-            for (var key in this.listSprite[type]) {
-                this.listSprite[type][key].Draw(context);
-            }
+        for (var key in this.listSprite) {
+            this.listSprite[key].Draw(context);
         }
     };
     SpriteManager.prototype.Add = function (sprite) {
         if (sprite) {
-            this.listSprite[sprite.type].push(sprite);
+            this.listSprite.push(sprite);
         }
     };
     SpriteManager.prototype.Remove = function (sprite) {
