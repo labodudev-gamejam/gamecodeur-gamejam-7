@@ -9,11 +9,12 @@ var Data;
             });
         };
         Object.LoadJSON = function (cb) {
+            Data.JSONLoader.Exec('jail/json/spritesheet.json', function (data) {
+                Data.Object.ships = data;
+                cb();
+            });
         };
-        Object.bodies = undefined;
-        Object.humanParts = undefined;
-        Object.bodiesSpawn = undefined;
-        Object.ordersSpawn = undefined;
+        Object.ships = undefined;
         return Object;
     }());
     Data.Object = Object;

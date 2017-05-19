@@ -15,6 +15,7 @@ var Data;
             });
         };
         Images.LoadSpriteSheet = function (cb) {
+            Data.Images.spriteSheet.src = 'jail/images/vaisseau.png';
             cb();
         };
         Images.LoadButton = function (cb) {

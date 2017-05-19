@@ -4,7 +4,7 @@ http://labodudev.fr
 */
 
 class SpriteManager {
-  public listSprite: any = {"body": [], "head": [], "leg": [], "arml": [], "armr": [], "buttons": [], "staticImage": [], "clickableImage": []};
+  public listSprite: any = {"ships": []};
   constructor() {}
 
   public Update(deltaTime: number):void {

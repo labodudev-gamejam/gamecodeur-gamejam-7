@@ -1,6 +1,6 @@
 var SpriteManager = (function () {
     function SpriteManager() {
-        this.listSprite = { "body": [], "head": [], "leg": [], "arml": [], "armr": [], "buttons": [], "staticImage": [], "clickableImage": [] };
+        this.listSprite = { "ships": [] };
     }
     SpriteManager.prototype.Update = function (deltaTime) {
         for (var type in this.listSprite) {

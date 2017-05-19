@@ -1,0 +1,20 @@
+{
+  "blueShip": {
+    "x": 0,
+    "y": 0,
+    "width": 99,
+    "height": 75
+  },
+  "greenShip": {
+    "x": 99,
+    "y": 0,
+    "width": 99,
+    "height": 75
+  },
+  "redShip": {
+    "x": 198,
+    "y": 0,
+    "width": 99,
+    "height": 75
+  }
+}

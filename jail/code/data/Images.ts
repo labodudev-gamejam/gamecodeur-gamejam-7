@@ -23,6 +23,7 @@ module Data {
     }
 
     static LoadSpriteSheet(cb: () => void):void {
+      Data.Images.spriteSheet.src = 'jail/images/vaisseau.png';
       cb();
     }
 

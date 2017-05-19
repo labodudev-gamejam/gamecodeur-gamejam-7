@@ -5,10 +5,7 @@ http://labodudev.fr
 
 module Data {
   export class Object {
-    static bodies: any = undefined;
-    static humanParts: any = undefined;
-    static bodiesSpawn: any = undefined;
-    static ordersSpawn: any = undefined;
+    static ships: any = undefined;
 
     static Load(cb: () => void):void {
       Data.Object.LoadJSON(() => {
@@ -17,6 +14,10 @@ module Data {
     }
 
     static LoadJSON(cb: () => void):void {
+      Data.JSONLoader.Exec('jail/json/spritesheet.json', (data: Array<any>) => {
+        Data.Object.ships = data;
+        cb();
+      });
     }
   }
 }
