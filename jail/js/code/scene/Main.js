@@ -1,7 +1,3 @@
-/**
-Créer par Jimmy Latour, 2017
-http://jimmylatour.com
-*/
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
@@ -18,17 +14,17 @@ var MainScene = (function (_super) {
     MainScene.prototype.Start = function () {
         _super.prototype.Start.call(this);
         this.grid = new Grid();
-        this.ships.push(new Ship(Data.Images.spriteSheet, {
+        this.ships.push(new Ship(0, Data.Images.spriteSheet, {
             x: 0,
             y: 9
         }, Data.Object.ships['redShip']));
         this.grid.AddElement(this.ships[0]);
-        this.ships.push(new Ship(Data.Images.spriteSheet, {
+        this.ships.push(new Ship(1, Data.Images.spriteSheet, {
             x: 1,
             y: 9
         }, Data.Object.ships['blueShip']));
         this.grid.AddElement(this.ships[1]);
-        this.ships.push(new Ship(Data.Images.spriteSheet, {
+        this.ships.push(new Ship(2, Data.Images.spriteSheet, {
             x: 2,
             y: 9
         }, Data.Object.ships['greenShip']));
@@ -41,6 +37,9 @@ var MainScene = (function (_super) {
         }
         if (EventKeyboard.Input.IsKeyDown(EventKeyboard.Input.keys.right) || EventMouse.Mouse.pressedClics.right) {
             this.Switch('right');
+        }
+        for (var key in this.ships) {
+            this.ships[key].Update();
         }
     };
     MainScene.prototype.Draw = function (context) {
@@ -61,23 +60,23 @@ var MainScene = (function (_super) {
             var currentShip = this.grid.GetElementInGrid(2);
             var middleShip = this.grid.GetElementInGrid(1);
             if (currentShip) {
-                currentShip.SetGridX(1);
+                currentShip.GoSwitch(1, 0);
             }
             if (middleShip) {
-                middleShip.SetGridX(2);
+                middleShip.GoSwitch(2, 1);
             }
         }
         else {
             var currentShip = this.grid.GetElementInGrid(0);
             var middleShip = this.grid.GetElementInGrid(1);
             if (currentShip) {
-                currentShip.SetGridX(1);
+                currentShip.GoSwitch(1, 1);
             }
             if (middleShip) {
-                middleShip.SetGridX(0);
+                middleShip.GoSwitch(0, 0);
             }
         }
     };
     return MainScene;
-})(Scene);
+}(Scene));
 //# sourceMappingURL=Main.js.map

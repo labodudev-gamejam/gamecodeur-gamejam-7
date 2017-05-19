@@ -17,7 +17,7 @@ class MainScene extends Scene {
 
 		this.grid = new Grid();
 
-    this.ships.push(new Ship(
+    this.ships.push(new Ship(0,
       Data.Images.spriteSheet,
       {
         x: 0,
@@ -28,7 +28,7 @@ class MainScene extends Scene {
 
 		this.grid.AddElement(this.ships[0]);
 
-    this.ships.push(new Ship(
+    this.ships.push(new Ship(1,
       Data.Images.spriteSheet,
       {
         x: 1,
@@ -39,7 +39,7 @@ class MainScene extends Scene {
 
 		this.grid.AddElement(this.ships[1]);
 
-    this.ships.push(new Ship(
+    this.ships.push(new Ship(2,
       Data.Images.spriteSheet,
       {
         x: 2,
@@ -61,6 +61,10 @@ class MainScene extends Scene {
 		if (EventKeyboard.Input.IsKeyDown(EventKeyboard.Input.keys.right) || EventMouse.Mouse.pressedClics.right) {
 			this.Switch( 'right' );
 		}
+
+		for (var key in this.ships) {
+      this.ships[key].Update();
+    }
   }
 
   public Draw(context: any):void {
@@ -83,24 +87,24 @@ class MainScene extends Scene {
 
 	public Switch( direction: String ):void {
 		if ( 'left' === direction ) {
-			let currentShip: Ship = this.grid.GetElementInGrid( 2 );
-			let middleShip: Ship = this.grid.GetElementInGrid( 1 );
+			var currentShip: Ship = this.grid.GetElementInGrid( 2 );
+			var middleShip: Ship = this.grid.GetElementInGrid( 1 );
 
 			if (currentShip) {
-				currentShip.SetGridX( 1 );
+				currentShip.GoSwitch( 1, 0 );
 			}
 			if (middleShip) {
-				middleShip.SetGridX ( 2 );
+				middleShip.GoSwitch( 2, 1 );
 			}
 		} else {
-			let currentShip: Ship = this.grid.GetElementInGrid( 0 );
-			let middleShip: Ship = this.grid.GetElementInGrid( 1 );
+			var currentShip: Ship = this.grid.GetElementInGrid( 0 );
+			var middleShip: Ship = this.grid.GetElementInGrid( 1 );
 
 			if (currentShip) {
-				currentShip.SetGridX( 1 );
+				currentShip.GoSwitch( 1, 1 );
 			}
 			if (middleShip) {
-				middleShip.SetGridX ( 0 );
+				middleShip.GoSwitch ( 0, 0 );
 			}
 		}
 	}

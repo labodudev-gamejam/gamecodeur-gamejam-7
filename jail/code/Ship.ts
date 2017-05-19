@@ -13,30 +13,90 @@ class Ship extends Sprite {
     y: 0
   }
 
+	private x:number = 0;
+	private y:number = 0;
+	private x1:number = 0;
+	private y1:number = 0;
+	private x2:number = 0;
+	private y2:number = 0;
+	private f:number = 0;
+	private speed:number = 0;
+	private dist:number = 0;
+	private steps:number = 50;
+	private onSwitch:boolean = false;
+	private direction:number = 0;
+
   /**
   * Le constructeur initialise les collisions du personnage
   * @return {void}
   */
-  constructor(public image: any,
+  constructor(public key: number,
+							public image: any,
 							public pos: any,
 							public zone: any) {
 			super(image, pos);
 
 			this.grid.x = pos.x;
 			this.grid.y = pos.y;
-			pos.x *= 100;
-			pos.y *= 80;
+			this.x = pos.x * 100;
+			this.y = pos.y * 80;
 		}
 
-		public SetGridX(x: number):void {
-			this.grid.x = x;
-			this.pos.x = this.grid.x * 100;
+		public GoSwitch(x: number, direction:number):void {
+			if ( ! this.onSwitch && this.f == 0 ) {
+				this.onSwitch = true;
+				this.direction = direction;
+
+				this.x1 = this.x;
+				this.y1 = this.y;
+
+				var rect = global['canvas'].getBoundingClientRect();
+				this.x2 = x * 100;
+				this.y2 = 720 ;
+
+				this.grid.x = x;
+
+				/// get and adjust mouse position
+
+				 /// calc distance
+				 var dx = this.x2 - this.x1;
+				var dy = this.y2 - this.y1;
+
+				 this.dist = Math.abs(Math.sqrt(dx * dx + dy * dy));
+
+				 /// speed will be number of steps / distance
+				 this.speed = 30 / this.dist;
+			}
 		}
 
   /**
   *
   */
   public Update():void {
+		if ( this.onSwitch ) {
+			this.f+= this.speed;
+
+		if ( this.x < 0.5 ) {
+			this.y += this.direction == 0 ? -5 : 5;
+		}
+		else {
+			this.y += this.direction == 0 ? 5 : -5;
+		}
+
+
+	 /// calc current x/y position
+		if ( this.f < 1  ) {
+		 this.x = this.x1 + (this.x2 - this.x1) * this.f;
+	 } else {
+		 this.x = this.x2;
+		 this.y = this.y2;
+		 this.f = 0;
+		 this.onSwitch = false;
+
+	 }
+
+			// console.log( Math.sqrt((this.pos.x - this.goTo.x) ^ 2 + (this.pos.y - this.goTo.y) ^ 2) );
+		}
   }
 
   /**
@@ -52,8 +112,8 @@ class Ship extends Sprite {
       this.zone.y,
       this.zone.width,
       this.zone.height,
-      this.pos.x,
-      this.pos.y,
+      this.x,
+      this.y,
       this.zone.width,
       this.zone.height
     );

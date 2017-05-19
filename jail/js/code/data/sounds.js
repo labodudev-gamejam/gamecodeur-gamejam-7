@@ -1,7 +1,3 @@
-/**
-Créer par Jimmy Latour, 2016
-http://labodudev.fr
-*/
 var Data;
 (function (Data) {
     var Sounds = (function () {
@@ -34,7 +30,7 @@ var Data;
         };
         Sounds.sounds = [];
         return Sounds;
-    })();
+    }());
     Data.Sounds = Sounds;
 })(Data || (Data = {}));
 ;

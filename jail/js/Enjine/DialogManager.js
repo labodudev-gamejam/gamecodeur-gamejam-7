@@ -1,9 +1,3 @@
-/**
-Créer par Jimmy Latour, 2016
-http://labodudev.fr
-Gères la listes des dialogues, permet de sauter un dialogue au clic de la souris
-Ou bien de passer à un dialogue suivant si le dialogue actuel est finit.
-*/
 var DialogManager = (function () {
     function DialogManager() {
         this.currentKeyDialog = 0;
@@ -52,5 +46,5 @@ var DialogManager = (function () {
         delete this.dialogs;
     };
     return DialogManager;
-})();
+}());
 //# sourceMappingURL=DialogManager.js.map

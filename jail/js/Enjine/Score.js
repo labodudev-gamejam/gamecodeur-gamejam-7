@@ -1,7 +1,3 @@
-/**
-Créer par Jimmy Latour, 2016
-http://labodudev.fr
-*/
 var Score = (function () {
     function Score() {
         this.point = 0;
@@ -17,5 +13,5 @@ var Score = (function () {
         this.point += pointToAdd;
     };
     return Score;
-})();
+}());
 //# sourceMappingURL=Score.js.map

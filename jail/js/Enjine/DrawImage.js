@@ -1,7 +1,3 @@
-/**
-Code par Jimmy Latour, 2016
-http://labodudev.fr
-*/
 var Helper;
 (function (Helper) {
     var DrawImage = (function () {
@@ -14,7 +10,7 @@ var Helper;
         };
         ;
         return DrawImage;
-    })();
+    }());
     Helper.DrawImage = DrawImage;
 })(Helper || (Helper = {}));
 //# sourceMappingURL=DrawImage.js.map

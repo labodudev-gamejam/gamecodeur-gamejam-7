@@ -1,7 +1,3 @@
-/**
-Créer par Jimmy Latour, 2016
-http://labodudev.fr
-*/
 var Countdown = (function () {
     function Countdown() {
         this.interval = undefined;
@@ -45,5 +41,5 @@ var Countdown = (function () {
         this.endFuncToCall = func;
     };
     return Countdown;
-})();
+}());
 //# sourceMappingURL=Countdown.js.map

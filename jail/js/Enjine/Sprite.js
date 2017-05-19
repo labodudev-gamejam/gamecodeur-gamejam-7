@@ -1,7 +1,3 @@
-/**
-Créer par Jimmy Latour, 2016
-http://labodudev.fr
-*/
 var Sprite = (function () {
     function Sprite(image, pos) {
         this.image = image;
@@ -62,5 +58,5 @@ var Sprite = (function () {
         this.offset = offset;
     };
     return Sprite;
-})();
+}());
 //# sourceMappingURL=Sprite.js.map
