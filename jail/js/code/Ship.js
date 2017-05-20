@@ -5,12 +5,12 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 var Ship = (function (_super) {
     __extends(Ship, _super);
-    function Ship(key, image, pos, zone, shipManager) {
+    function Ship(image, pos, zone, angle, shipManager) {
         _super.call(this, image, pos);
-        this.key = key;
         this.image = image;
         this.pos = pos;
         this.zone = zone;
+        this.angle = angle;
         this.shipManager = shipManager;
         this.grid = {
             x: 0,
@@ -71,7 +71,11 @@ var Ship = (function (_super) {
         }
     };
     Ship.prototype.Draw = function (context) {
-        context.drawImage(this.image, this.zone.x, this.zone.y, this.zone.width, this.zone.height, this.x, this.y, this.zone.width, this.zone.height);
+        context.save();
+        context.translate(this.x + 49.5, this.y + 37.5);
+        context.rotate(this.angle * Math.PI / 180);
+        context.drawImage(this.image, this.zone.x, this.zone.y, this.zone.width, this.zone.height, -(this.zone.width / 2), -(this.zone.height / 2), this.zone.width, this.zone.height);
+        context.restore();
     };
     Ship.prototype.Clear = function () {
     };

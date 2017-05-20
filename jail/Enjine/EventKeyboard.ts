@@ -5,8 +5,8 @@ http://labodudev.fr
 
 module EventKeyboard {
   export class Input {
-    static keys: any = {"left": 37, "right": 39};
-    static pressedKeys: any = {"left": false, "right": false};
+    static keys: any = {"left": 37, "right": 39, "space": 32};
+    static pressedKeys: any = {"left": false, "right": false, "space": false};
 
     static Event(canvas: any): void {
       document.onkeydown = function(event) { EventKeyboard.Input.KeyDownEvent(event); }

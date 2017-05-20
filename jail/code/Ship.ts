@@ -25,15 +25,14 @@ class Ship extends Sprite {
 	private steps:number = 50;
 	private onSwitch:boolean = false;
 	private direction:number = 0;
-
   /**
   * Le constructeur initialise les collisions du personnage
   * @return {void}
   */
-  constructor(public key: number,
-							public image: any,
+  constructor(public image: any,
 							public pos: any,
 							public zone: any,
+							public angle: number,
 							public shipManager: ShipsManager) {
 			super(image, pos);
 
@@ -107,17 +106,24 @@ class Ship extends Sprite {
   * @param {any} context [description]
   */
   public Draw(context: any):void {
-		context.drawImage(
+		context.save();
+    context.translate(this.x + 49.5, this.y + 37.5);
+    context.rotate(this.angle*Math.PI/180);
+
+    context.drawImage(
       this.image,
       this.zone.x,
       this.zone.y,
       this.zone.width,
       this.zone.height,
-      this.x,
-      this.y,
+      -(this.zone.width / 2),
+      -(this.zone.height / 2),
       this.zone.width,
       this.zone.height
     );
+
+    context.restore();
+
   }
 
   /**

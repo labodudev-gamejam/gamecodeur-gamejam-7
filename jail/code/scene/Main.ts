@@ -18,33 +18,69 @@ class MainScene extends Scene {
 		this.grid = new Grid();
 		this.shipManager = new ShipsManager(this.grid);
 
-    this.shipManager.Add(new Ship(0,
-      Data.Images.spriteSheet,
+    this.shipManager.Add(new Ship(
+			Data.Images.spriteSheet,
       {
         x: 0,
         y: 9
       },
 			Data.Object.ships['redShip'],
+			0,
 			this.shipManager
     ));
 
-    this.shipManager.Add(new Ship(1,
+    this.shipManager.Add(new Ship(
       Data.Images.spriteSheet,
       {
         x: 1,
         y: 9
       },
 			Data.Object.ships['blueShip'],
+			0,
 			this.shipManager
     ));
 
-    this.shipManager.Add(new Ship(2,
+    this.shipManager.Add(new Ship(
       Data.Images.spriteSheet,
       {
         x: 2,
         y: 9
       },
 			Data.Object.ships['greenShip'],
+			0,
+			this.shipManager
+    ));
+
+    this.shipManager.Add(new Ship(
+			Data.Images.spriteSheet,
+      {
+        x: 0,
+        y: 0
+      },
+			Data.Object.ships['redShip'],
+			180,
+			this.shipManager
+    ));
+
+    this.shipManager.Add(new Ship(
+      Data.Images.spriteSheet,
+      {
+        x: 1,
+        y: 0
+      },
+			Data.Object.ships['blueShip'],
+			180,
+			this.shipManager
+    ));
+
+    this.shipManager.Add(new Ship(
+      Data.Images.spriteSheet,
+      {
+        x: 2,
+        y: 0
+      },
+			Data.Object.ships['greenShip'],
+			180,
 			this.shipManager
     ));
   }
