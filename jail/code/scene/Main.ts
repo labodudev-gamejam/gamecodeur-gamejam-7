@@ -96,6 +96,10 @@ class MainScene extends Scene {
 			this.shipManager.GoSwitch('right');
 		}
 
+		if (EventKeyboard.Input.IsKeyDown(EventKeyboard.Input.keys.space) ) {
+			console.log('ok');
+		}
+
 		this.shipManager.Update(deltaTime);
   }
 

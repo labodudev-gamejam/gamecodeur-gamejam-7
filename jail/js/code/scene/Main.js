@@ -48,6 +48,9 @@ var MainScene = (function (_super) {
         if (EventKeyboard.Input.IsKeyDown(EventKeyboard.Input.keys.right) || EventMouse.Mouse.pressedClics.right) {
             this.shipManager.GoSwitch('right');
         }
+        if (EventKeyboard.Input.IsKeyDown(EventKeyboard.Input.keys.space)) {
+            console.log('ok');
+        }
         this.shipManager.Update(deltaTime);
     };
     MainScene.prototype.Draw = function (context) {
