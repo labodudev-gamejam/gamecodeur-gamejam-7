@@ -66,7 +66,7 @@ class Ship extends Sprite {
 				 this.dist = Math.abs(Math.sqrt(dx * dx + dy * dy));
 
 				 /// speed will be number of steps / distance
-				 this.speed = 30 / this.dist;
+				 this.speed = 20 / this.dist;
 			}
 		}
 

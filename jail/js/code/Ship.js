@@ -46,7 +46,7 @@ var Ship = (function (_super) {
             var dx = this.x2 - this.x1;
             var dy = this.y2 - this.y1;
             this.dist = Math.abs(Math.sqrt(dx * dx + dy * dy));
-            this.speed = 30 / this.dist;
+            this.speed = 20 / this.dist;
         }
     };
     Ship.prototype.Update = function () {
