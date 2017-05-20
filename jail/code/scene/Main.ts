@@ -4,8 +4,8 @@ http://jimmylatour.com
 */
 
 class MainScene extends Scene {
-	private ships: Array<Ship> = [];
 	private grid: Grid = undefined;
+	private shipManager: ShipsManager = undefined;
   constructor() {
     super();
 
@@ -16,65 +16,59 @@ class MainScene extends Scene {
     super.Start();
 
 		this.grid = new Grid();
+		this.shipManager = new ShipsManager(this.grid);
 
-    this.ships.push(new Ship(0,
+    this.shipManager.Add(new Ship(0,
       Data.Images.spriteSheet,
       {
         x: 0,
         y: 9
       },
-			Data.Object.ships['redShip']
+			Data.Object.ships['redShip'],
+			this.shipManager
     ));
 
-		this.grid.AddElement(this.ships[0]);
-
-    this.ships.push(new Ship(1,
+    this.shipManager.Add(new Ship(1,
       Data.Images.spriteSheet,
       {
         x: 1,
         y: 9
       },
-			Data.Object.ships['blueShip']
+			Data.Object.ships['blueShip'],
+			this.shipManager
     ));
 
-		this.grid.AddElement(this.ships[1]);
-
-    this.ships.push(new Ship(2,
+    this.shipManager.Add(new Ship(2,
       Data.Images.spriteSheet,
       {
         x: 2,
         y: 9
       },
-			Data.Object.ships['greenShip']
+			Data.Object.ships['greenShip'],
+			this.shipManager
     ));
-
-		this.grid.AddElement(this.ships[2]);
   }
 
   public Update(deltaTime: number):void {
     super.Update(deltaTime);
 
 		if (EventKeyboard.Input.IsKeyDown(EventKeyboard.Input.keys.left) || EventMouse.Mouse.pressedClics.left) {
-			this.Switch( 'left' );
+			this.shipManager.GoSwitch('left');
 		}
 
 		if (EventKeyboard.Input.IsKeyDown(EventKeyboard.Input.keys.right) || EventMouse.Mouse.pressedClics.right) {
-			this.Switch( 'right' );
+			this.shipManager.GoSwitch('right');
 		}
 
-		for (var key in this.ships) {
-      this.ships[key].Update();
-    }
+		this.shipManager.Update(deltaTime);
   }
 
   public Draw(context: any):void {
     super.Draw(context);
 
-		this.grid.Draw( context );
+		this.grid.Draw(context);
 
-		for (var key in this.ships) {
-      this.ships[key].Draw(context);
-    }
+		this.shipManager.Draw(context);
   }
 
 	public Clear():void {
@@ -84,28 +78,4 @@ class MainScene extends Scene {
   public ChangeScene():void {
     this.Clear();
   }
-
-	public Switch( direction: String ):void {
-		if ( 'left' === direction ) {
-			var currentShip: Ship = this.grid.GetElementInGrid( 2 );
-			var middleShip: Ship = this.grid.GetElementInGrid( 1 );
-
-			if (currentShip) {
-				currentShip.GoSwitch( 1, 0 );
-			}
-			if (middleShip) {
-				middleShip.GoSwitch( 2, 1 );
-			}
-		} else {
-			var currentShip: Ship = this.grid.GetElementInGrid( 0 );
-			var middleShip: Ship = this.grid.GetElementInGrid( 1 );
-
-			if (currentShip) {
-				currentShip.GoSwitch( 1, 1 );
-			}
-			if (middleShip) {
-				middleShip.GoSwitch ( 0, 0 );
-			}
-		}
-	}
 }

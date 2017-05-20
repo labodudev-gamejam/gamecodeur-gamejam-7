@@ -33,7 +33,8 @@ class Ship extends Sprite {
   constructor(public key: number,
 							public image: any,
 							public pos: any,
-							public zone: any) {
+							public zone: any,
+							public shipManager: ShipsManager) {
 			super(image, pos);
 
 			this.grid.x = pos.x;
@@ -43,7 +44,7 @@ class Ship extends Sprite {
 		}
 
 		public GoSwitch(x: number, direction:number):void {
-			if ( ! this.onSwitch && this.f == 0 ) {
+			if ( ! this.shipManager.onSwitch && ! this.onSwitch && this.f == 0 ) {
 				this.onSwitch = true;
 				this.direction = direction;
 
@@ -91,8 +92,8 @@ class Ship extends Sprite {
 		 this.x = this.x2;
 		 this.y = this.y2;
 		 this.f = 0;
+		 this.shipManager.onSwitch = false;
 		 this.onSwitch = false;
-
 	 }
 
 			// console.log( Math.sqrt((this.pos.x - this.goTo.x) ^ 2 + (this.pos.y - this.goTo.y) ^ 2) );

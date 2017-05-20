@@ -1,14 +1,10 @@
 var Grid = (function () {
     function Grid() {
-        this.ships = [];
     }
-    Grid.prototype.AddElement = function (element) {
-        this.ships.push(element);
-    };
-    Grid.prototype.GetElementInGrid = function (x) {
-        for (var key in this.ships) {
-            if (this.ships[key].grid.x == x) {
-                return this.ships[key];
+    Grid.prototype.GetElementInGrid = function (ships, x) {
+        for (var key in ships) {
+            if (ships[key].grid.x == x) {
+                return ships[key];
             }
         }
     };

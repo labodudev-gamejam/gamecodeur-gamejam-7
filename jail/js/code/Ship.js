@@ -5,12 +5,13 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 var Ship = (function (_super) {
     __extends(Ship, _super);
-    function Ship(key, image, pos, zone) {
+    function Ship(key, image, pos, zone, shipManager) {
         _super.call(this, image, pos);
         this.key = key;
         this.image = image;
         this.pos = pos;
         this.zone = zone;
+        this.shipManager = shipManager;
         this.grid = {
             x: 0,
             y: 0
@@ -33,7 +34,7 @@ var Ship = (function (_super) {
         this.y = pos.y * 80;
     }
     Ship.prototype.GoSwitch = function (x, direction) {
-        if (!this.onSwitch && this.f == 0) {
+        if (!this.shipManager.onSwitch && !this.onSwitch && this.f == 0) {
             this.onSwitch = true;
             this.direction = direction;
             this.x1 = this.x;
@@ -64,6 +65,7 @@ var Ship = (function (_super) {
                 this.x = this.x2;
                 this.y = this.y2;
                 this.f = 0;
+                this.shipManager.onSwitch = false;
                 this.onSwitch = false;
             }
         }

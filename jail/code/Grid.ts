@@ -4,19 +4,14 @@ http://jimmylatour.com
 */
 
 class Grid {
-	private ships: Array<Ship> = [];
   constructor() {
 
   }
 
-	public AddElement(element: Ship):void {
-		this.ships.push(element);
-	}
-
-	public GetElementInGrid(x: number):Ship {
-		for(var key in this.ships) {
-			if ( this.ships[key].grid.x == x ) {
-				return this.ships[key];
+	public GetElementInGrid(ships: Array<Ship>, x: number):Ship {
+		for(var key in ships) {
+			if ( ships[key].grid.x == x ) {
+				return ships[key];
 			}
 		}
 
