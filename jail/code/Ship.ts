@@ -22,7 +22,7 @@ class Ship extends Sprite {
 	private f:number = 0;
 	private speed:number = 0;
 	private dist:number = 0;
-	private steps:number = 50;
+	private steps:number = 200;
 	private onSwitch:boolean = false;
 	private direction:number = 0;
   /**
@@ -65,7 +65,7 @@ class Ship extends Sprite {
 				 this.dist = Math.abs(Math.sqrt(dx * dx + dy * dy));
 
 				 /// speed will be number of steps / distance
-				 this.speed = 20 / this.dist;
+				 this.speed = 30 / this.dist;
 			}
 		}
 

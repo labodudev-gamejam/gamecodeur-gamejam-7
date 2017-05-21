@@ -2,7 +2,8 @@ var global = {
     application: undefined,
     canvas: undefined,
     width: 0,
-    height: 0 };
+    height: 0
+};
 var Application = (function () {
     function Application() {
         var _this = this;
@@ -13,7 +14,7 @@ var Application = (function () {
         global["application"] = this;
         this.LoadCanvas();
         this.StartLoadData(function () {
-            SceneManager.Manager.SetScene(new MainScene());
+            SceneManager.Manager.SetScene(new MenuScene());
             _this.timer = new Timer(_this);
         });
     }

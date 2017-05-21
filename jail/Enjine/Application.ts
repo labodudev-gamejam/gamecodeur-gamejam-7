@@ -54,7 +54,7 @@ class Application {
 
     this.LoadCanvas();
     this.StartLoadData( () => {
-      SceneManager.Manager.SetScene(new MainScene());
+      SceneManager.Manager.SetScene(new MenuScene());
       this.timer = new Timer(this);
     } );
   }

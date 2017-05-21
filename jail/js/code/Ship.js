@@ -25,7 +25,7 @@ var Ship = (function (_super) {
         this.f = 0;
         this.speed = 0;
         this.dist = 0;
-        this.steps = 50;
+        this.steps = 200;
         this.onSwitch = false;
         this.direction = 0;
         this.grid.x = pos.x;
@@ -46,7 +46,7 @@ var Ship = (function (_super) {
             var dx = this.x2 - this.x1;
             var dy = this.y2 - this.y1;
             this.dist = Math.abs(Math.sqrt(dx * dx + dy * dy));
-            this.speed = 20 / this.dist;
+            this.speed = 30 / this.dist;
         }
     };
     Ship.prototype.Update = function () {
