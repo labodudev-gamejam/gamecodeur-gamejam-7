@@ -1,9 +1,9 @@
 var Grid = (function () {
     function Grid() {
     }
-    Grid.prototype.GetElementInGrid = function (ships, x) {
+    Grid.prototype.GetElementInGrid = function (ships, x, y) {
         for (var key in ships) {
-            if (ships[key].grid.x == x) {
+            if (ships[key].grid.x == x && ships[key].grid.y == y) {
                 return ships[key];
             }
         }

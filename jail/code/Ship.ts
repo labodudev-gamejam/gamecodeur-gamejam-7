@@ -25,6 +25,7 @@ class Ship extends Sprite {
 	private steps:number = 200;
 	private onSwitch:boolean = false;
 	private direction:number = 0;
+	private balls: Array<Ball> = [];
   /**
   * Le constructeur initialise les collisions du personnage
   * @return {void}
@@ -33,7 +34,8 @@ class Ship extends Sprite {
 							public pos: any,
 							public zone: any,
 							public angle: number,
-							public shipManager: ShipsManager) {
+							public color: string,
+							public shipManager: ShipManager) {
 			super(image, pos);
 
 			this.grid.x = pos.x;
@@ -42,7 +44,7 @@ class Ship extends Sprite {
 			this.y = pos.y * 80;
 		}
 
-		public GoSwitch(x: number, direction:number):void {
+		public GoSwitch(x: number, y: number, direction:number):void {
 			if ( ! this.shipManager.onSwitch && ! this.onSwitch && this.f == 0 ) {
 				this.onSwitch = true;
 				this.direction = direction;
@@ -52,7 +54,7 @@ class Ship extends Sprite {
 
 				var rect = global['canvas'].getBoundingClientRect();
 				this.x2 = x * 100;
-				this.y2 = 720 ;
+				this.y2 = y * 80 ;
 
 				this.grid.x = x;
 
@@ -72,30 +74,32 @@ class Ship extends Sprite {
   /**
   *
   */
-  public Update():void {
+  public Update(deltaTime: number):void {
 		if ( this.onSwitch ) {
 			this.f+= this.speed;
 
-		if ( this.x < 0.5 ) {
-			this.y += this.direction == 0 ? -5 : 5;
+			if ( this.x < 0.5 ) {
+				this.y += this.direction == 0 ? -5 : 5;
+			}
+			else {
+				this.y += this.direction == 0 ? 5 : -5;
+			}
+
+
+		 /// calc current x/y position
+			if ( this.f < 1  ) {
+				this.x = this.x1 + (this.x2 - this.x1) * this.f;
+			} else {
+				this.x = this.x2;
+				this.y = this.y2;
+				this.f = 0;
+				this.shipManager.onSwitch = false;
+				this.onSwitch = false;
+			}
 		}
-		else {
-			this.y += this.direction == 0 ? 5 : -5;
-		}
 
-
-	 /// calc current x/y position
-		if ( this.f < 1  ) {
-		 this.x = this.x1 + (this.x2 - this.x1) * this.f;
-	 } else {
-		 this.x = this.x2;
-		 this.y = this.y2;
-		 this.f = 0;
-		 this.shipManager.onSwitch = false;
-		 this.onSwitch = false;
-	 }
-
-			// console.log( Math.sqrt((this.pos.x - this.goTo.x) ^ 2 + (this.pos.y - this.goTo.y) ^ 2) );
+		for( var key in this.balls ) {
+			this.balls[key].Update(deltaTime);
 		}
   }
 
@@ -124,6 +128,9 @@ class Ship extends Sprite {
 
     context.restore();
 
+		for( var key in this.balls ) {
+			this.balls[key].Draw(context);
+		}
   }
 
   /**
@@ -131,4 +138,10 @@ class Ship extends Sprite {
   */
   public Clear():void {
   }
+
+	public AddMissile(ball: Ball):void {
+		ball.pos.x = this.x + 45;
+		ball.pos.y = this.y;
+		this.balls.push(ball);
+	}
 }

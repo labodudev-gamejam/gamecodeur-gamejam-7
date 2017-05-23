@@ -5,16 +5,6 @@ http://labodudev.fr
 
 class Scene {
   /**
-   * Gestion des sprites
-   * @type {SpriteManager}
-   */
-  public spriteManager: SpriteManager = new SpriteManager();
-
-  public character: Character = undefined;
-
-  public score: Score = undefined;
-
-  /**
    * Ajoutes buttonExit dans spriteManager
    * @return {void} nothing
    */
@@ -22,30 +12,11 @@ class Scene {
 
   public Start():void {}
 
-  public Update(delta: number):void {
-    if (this.spriteManager) {
-      this.spriteManager.Update(delta);
-    }
-  }
+  public Update(delta: number):void {}
 
-  public Draw(context: any):void {
-    if (this.spriteManager) {
-      this.spriteManager.Draw(context);
-    }
+  public Draw(context: any):void {}
 
-    if (this.score) {
-      this.score.Draw(context);
-    }
-  }
+  public Clear():void {}
 
-  public Clear():void {
-    this.spriteManager.Clear();
-    delete this.spriteManager;
-
-  }
-
-  public InitCharacter(triggerElement: any):void {}
-  public RemoveCharacter():void {}
-  public Delivery():void {}
   public ChangeScene():void {}
 }

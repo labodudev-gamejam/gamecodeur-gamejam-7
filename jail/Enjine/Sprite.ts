@@ -11,7 +11,6 @@ class Sprite {
   public zone: any = undefined;
   private clickable: Clickable = undefined;
   private movable: Movable = undefined;
-  private collidersPoint: Array<PointCollider> = [];
 
   constructor(public image: any,
               public pos: any) {

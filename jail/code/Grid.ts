@@ -8,9 +8,9 @@ class Grid {
 
   }
 
-	public GetElementInGrid(ships: Array<Ship>, x: number):Ship {
+	public GetElementInGrid(ships: Array<Ship>, x: number, y: number):Ship {
 		for(var key in ships) {
-			if ( ships[key].grid.x == x ) {
+			if ( ships[key].grid.x == x && ships[key].grid.y == y ) {
 				return ships[key];
 			}
 		}

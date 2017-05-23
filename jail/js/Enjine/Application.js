@@ -14,7 +14,7 @@ var Application = (function () {
         global["application"] = this;
         this.LoadCanvas();
         this.StartLoadData(function () {
-            SceneManager.Manager.SetScene(new MenuScene());
+            SceneManager.Manager.SetScene(new MainScene());
             _this.timer = new Timer(_this);
         });
     }

@@ -9,7 +9,6 @@ var Sprite = (function () {
         this.zone = undefined;
         this.clickable = undefined;
         this.movable = undefined;
-        this.collidersPoint = [];
     }
     Sprite.prototype.Update = function (deltaTime) {
         if (this.clickable) {
