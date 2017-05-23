@@ -32,17 +32,29 @@ var ShipManager = (function () {
             this.ships.push(sprite);
         }
     };
-    ShipManager.prototype.Remove = function (sprite) {
+    ShipManager.prototype.Remove = function (ship) {
+        for (var key in this.ships) {
+            if (this.ships[key] == ship) {
+                var aKey = key;
+                ship.Clear();
+                this.ships.splice(aKey, 1);
+            }
+        }
     };
     ShipManager.prototype.GoSwitch = function (direction, y) {
+        var _this = this;
         if ('left' === direction) {
             var currentShip = this.grid.GetElementInGrid(this.ships, 2, y);
             var middleShip = this.grid.GetElementInGrid(this.ships, 1, y);
             if (currentShip) {
-                currentShip.GoSwitch(1, y, 0);
+                currentShip.GoSwitch(1, y, 0, function () {
+                    _this.onSwitch = false;
+                });
             }
             if (middleShip) {
-                middleShip.GoSwitch(2, y, 1);
+                middleShip.GoSwitch(2, y, 1, function () {
+                    _this.onSwitch = false;
+                });
             }
             this.onSwitch = true;
         }
@@ -50,10 +62,14 @@ var ShipManager = (function () {
             var currentShip = this.grid.GetElementInGrid(this.ships, 0, y);
             var middleShip = this.grid.GetElementInGrid(this.ships, 1, y);
             if (currentShip) {
-                currentShip.GoSwitch(1, y, 1);
+                currentShip.GoSwitch(1, y, 1, function () {
+                    _this.onSwitch = false;
+                });
             }
             if (middleShip) {
-                middleShip.GoSwitch(0, y, 0);
+                middleShip.GoSwitch(0, y, 0, function () {
+                    _this.onSwitch = false;
+                });
             }
             this.onSwitch = true;
         }

@@ -39,7 +39,8 @@ var Ship = (function (_super) {
         this.x = pos.x * 100;
         this.y = pos.y * 80;
     }
-    Ship.prototype.GoSwitch = function (x, y, direction) {
+    Ship.prototype.GoSwitch = function (x, y, direction, cb) {
+        this.cb = cb;
         if (!this.shipManager.onSwitch && !this.onSwitch && this.f == 0) {
             this.onSwitch = true;
             this.direction = direction;
@@ -71,8 +72,8 @@ var Ship = (function (_super) {
                 this.x = this.x2;
                 this.y = this.y2;
                 this.f = 0;
-                this.shipManager.onSwitch = false;
                 this.onSwitch = false;
+                this.cb();
             }
         }
         for (var key in this.balls) {
@@ -90,6 +91,19 @@ var Ship = (function (_super) {
         }
     };
     Ship.prototype.Clear = function () {
+        delete this.x;
+        delete this.y;
+        delete this.x1;
+        delete this.y1;
+        delete this.x2;
+        delete this.y2;
+        delete this.f;
+        delete this.speed;
+        delete this.dist;
+        delete this.steps;
+        delete this.onSwitch;
+        delete this.direction;
+        delete this.balls;
     };
     Ship.prototype.AddMissile = function (ball) {
         this.balls.push(ball);

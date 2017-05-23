@@ -26,6 +26,7 @@ class Ship extends Sprite {
 	private onSwitch:boolean = false;
 	private direction:number = 0;
 	private balls: Array<Ball> = [];
+	private cb: any;
   /**
   * Le constructeur initialise les collisions du personnage
   * @return {void}
@@ -44,7 +45,8 @@ class Ship extends Sprite {
 			this.y = pos.y * 80;
 		}
 
-		public GoSwitch(x: number, y: number, direction:number):void {
+		public GoSwitch(x: number, y: number, direction:number, cb: () => void):void {
+			this.cb = cb;
 			if ( ! this.shipManager.onSwitch && ! this.onSwitch && this.f == 0 ) {
 				this.onSwitch = true;
 				this.direction = direction;
@@ -93,8 +95,8 @@ class Ship extends Sprite {
 				this.x = this.x2;
 				this.y = this.y2;
 				this.f = 0;
-				this.shipManager.onSwitch = false;
 				this.onSwitch = false;
+				this.cb();
 			}
 		}
 
@@ -137,6 +139,19 @@ class Ship extends Sprite {
   * Nettoies toutes les variables
   */
   public Clear():void {
+		delete this.x;
+		delete this.y;
+		delete this.x1;
+		delete this.y1;
+		delete this.x2;
+		delete this.y2;
+		delete this.f;
+		delete this.speed;
+		delete this.dist;
+		delete this.steps;
+		delete this.onSwitch;
+		delete this.direction;
+		delete this.balls;
   }
 
 	public AddMissile(ball: Ball):void {

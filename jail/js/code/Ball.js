@@ -3,10 +3,11 @@ Créer par Jimmy Latour, 2017
 http://jimmylatour.com
 */
 var Ball = (function () {
-    function Ball(pos, color, direction) {
+    function Ball(pos, color, direction, grid) {
         this.pos = pos;
         this.color = color;
         this.direction = direction;
+        this.grid = grid;
         this.speed = 500;
     }
     Ball.prototype.Update = function (deltaTime) {
@@ -16,6 +17,7 @@ var Ball = (function () {
         else {
             this.pos.y -= this.speed * deltaTime;
         }
+        this.grid.CheckColliderGridAndColor(this.pos, this.color);
     };
     Ball.prototype.Draw = function (context) {
         context.save();

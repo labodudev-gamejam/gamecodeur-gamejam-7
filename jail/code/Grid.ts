@@ -4,6 +4,7 @@ http://jimmylatour.com
 */
 
 class Grid {
+	private shipManager: ShipManager = undefined;
   constructor() {
 
   }
@@ -15,6 +16,20 @@ class Grid {
 			}
 		}
 
+	}
+
+	public CheckColliderGridAndColor(pos: any, color: string):Ship {
+		for(var key in this.shipManager.ships) {
+			if ( this.shipManager.ships[key].grid.x == parseInt(pos.x / 100) && this.shipManager.ships[key].grid.y == parseInt(pos.y / 80) && this.shipManager.ships[key].color == color ) {
+				this.shipManager.Remove(this.shipManager.ships[key]);
+			}
+		}
+
+		return undefined;
+	}
+
+	public SetShipManager(shipManager: ShipManager):void {
+		this.shipManager = shipManager;
 	}
 
   public Update(deltaTime: number):void {

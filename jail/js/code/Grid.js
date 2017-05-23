@@ -4,6 +4,7 @@ http://jimmylatour.com
 */
 var Grid = (function () {
     function Grid() {
+        this.shipManager = undefined;
     }
     Grid.prototype.GetElementInGrid = function (ships, x, y) {
         for (var key in ships) {
@@ -11,6 +12,17 @@ var Grid = (function () {
                 return ships[key];
             }
         }
+    };
+    Grid.prototype.CheckColliderGridAndColor = function (pos, color) {
+        for (var key in this.shipManager.ships) {
+            if (this.shipManager.ships[key].grid.x == parseInt(pos.x / 100) && this.shipManager.ships[key].grid.y == parseInt(pos.y / 80) && this.shipManager.ships[key].color == color) {
+                this.shipManager.Remove(this.shipManager.ships[key]);
+            }
+        }
+        return undefined;
+    };
+    Grid.prototype.SetShipManager = function (shipManager) {
+        this.shipManager = shipManager;
     };
     Grid.prototype.Update = function (deltaTime) {
     };

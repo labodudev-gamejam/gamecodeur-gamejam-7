@@ -42,14 +42,14 @@ class ShipManager {
 		}
   }
 
-  Remove(sprite: Sprite): void {
-    // for (var key in this.ships) {
-    //   if (this.ships[key] == sprite) {
-    //     let aKey: any = key;
-    //     sprite.Clear();
-    //     this.bodies.splice(aKey, 1);
-    //   }
-    // }
+  Remove(ship: Ship): void {
+    for (var key in this.ships) {
+      if (this.ships[key] == ship) {
+        let aKey: any = key;
+        ship.Clear();
+        this.ships.splice(aKey, 1);
+      }
+    }
   }
 
   GoSwitch(direction: String, y: number):void {
@@ -58,10 +58,14 @@ class ShipManager {
 			var middleShip: Ship = this.grid.GetElementInGrid(this.ships, 1, y);
 
 			if (currentShip) {
-				currentShip.GoSwitch( 1, y, 0 );
+				currentShip.GoSwitch( 1, y, 0, () => {
+					this.onSwitch = false;
+				} );
 			}
 			if (middleShip) {
-				middleShip.GoSwitch( 2, y, 1 );
+				middleShip.GoSwitch( 2, y, 1, () => {
+					this.onSwitch = false;
+				} );
 			}
 
       this.onSwitch = true;
@@ -70,10 +74,14 @@ class ShipManager {
 			var middleShip: Ship = this.grid.GetElementInGrid(this.ships, 1, y);
 
 			if (currentShip) {
-				currentShip.GoSwitch( 1, y, 1 );
+				currentShip.GoSwitch( 1, y, 1, () => {
+					this.onSwitch = false;
+				} );
 			}
 			if (middleShip) {
-				middleShip.GoSwitch ( 0, y, 0 );
+				middleShip.GoSwitch ( 0, y, 0, () => {
+					this.onSwitch = false;
+				} );
 			}
       this.onSwitch = true;
 		}

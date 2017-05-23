@@ -9,7 +9,7 @@ class Ball {
   * Le constructeur initialise les collisions du personnage
   * @return {void}
   */
-  constructor(public pos: any, public color: string, public direction: string) {}
+  constructor(public pos: any, public color: string, public direction: string, public grid: Grid) {}
   /**
   *
   */
@@ -19,6 +19,8 @@ class Ball {
 		} else {
 	    this.pos.y -= this.speed * deltaTime;
 		}
+
+		this.grid.CheckColliderGridAndColor(this.pos, this.color);
   }
 
   /**

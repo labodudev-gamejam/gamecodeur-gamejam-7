@@ -21,6 +21,7 @@ class MainScene extends Scene {
 
 		this.grid = new Grid();
 		this.shipManager = new ShipManager(this.grid);
+		this.grid.SetShipManager(this.shipManager);
 		this.spawnManager = new SpawnManager(this.grid, this.shipManager);
 		this.ia = new IA(this.grid, this.shipManager);
 	}
@@ -43,7 +44,7 @@ class MainScene extends Scene {
 		if (EventKeyboard.Input.IsKeyDown(EventKeyboard.Input.keys.space) && this.canShoot && !this.shipManager.onSwitch ) {
 			var ships = this.shipManager.GetShipByAngle( 0 );
 			for ( var key in ships ) {
-				ships[key].AddMissile( new Ball( {x: ships[key].x + 45, y: ships[key].y}, ships[key].color, 'top' ) );
+				ships[key].AddMissile( new Ball( {x: ships[key].x + 45, y: ships[key].y}, ships[key].color, 'top', this.grid ) );
 			}
 
 			this.startTimeShoot = new Date().getTime();
