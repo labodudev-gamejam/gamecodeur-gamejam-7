@@ -1,3 +1,7 @@
+/**
+Créer par Jimmy Latour, 2016
+http://labodudev.fr
+*/
 var BallManager = (function () {
     function BallManager() {
         this.balls = [];
@@ -21,5 +25,5 @@ var BallManager = (function () {
     };
     BallManager.prototype.Clear = function () { };
     return BallManager;
-}());
+})();
 //# sourceMappingURL=BallManager.js.map

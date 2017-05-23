@@ -13,8 +13,8 @@ class Ship extends Sprite {
     y: 0
   }
 
-	private x:number = 0;
-	private y:number = 0;
+	public x:number = 0;
+	public y:number = 0;
 	private x1:number = 0;
 	private y1:number = 0;
 	private x2:number = 0;
@@ -140,8 +140,6 @@ class Ship extends Sprite {
   }
 
 	public AddMissile(ball: Ball):void {
-		ball.pos.x = this.x + 45;
-		ball.pos.y = this.y;
 		this.balls.push(ball);
 	}
 }

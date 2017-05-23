@@ -1,3 +1,7 @@
+/**
+Créer par Jimmy Latour, 2016
+http://labodudev.fr
+*/
 var ShipManager = (function () {
     function ShipManager(grid) {
         this.grid = grid;
@@ -56,5 +60,5 @@ var ShipManager = (function () {
     };
     ShipManager.prototype.Clear = function () { };
     return ShipManager;
-}());
+})();
 //# sourceMappingURL=ShipManager.js.map

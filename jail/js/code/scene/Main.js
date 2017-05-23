@@ -1,26 +1,23 @@
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
+/**
+Créer par Jimmy Latour, 2017
+http://jimmylatour.com
+*/
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
 var MainScene = (function (_super) {
     __extends(MainScene, _super);
     function MainScene() {
-        var _this = _super.call(this) || this;
-        _this.grid = undefined;
-        _this.shipManager = undefined;
-        _this.spawnManager = undefined;
-        _this.ia = undefined;
-        _this.canShoot = true;
-        _this.startTimeShoot = 0;
-        _this.reloadTime = 0;
-        _this.Start();
-        return _this;
+        _super.call(this);
+        this.grid = undefined;
+        this.shipManager = undefined;
+        this.spawnManager = undefined;
+        this.ia = undefined;
+        this.canShoot = true;
+        this.startTimeShoot = 0;
+        this.Start();
     }
     MainScene.prototype.Start = function () {
         _super.prototype.Start.call(this);
@@ -31,7 +28,7 @@ var MainScene = (function (_super) {
     };
     MainScene.prototype.Update = function (deltaTime) {
         _super.prototype.Update.call(this, deltaTime);
-        if (new Date().getTime() - this.startTimeShoot > 1000) {
+        if (new Date().getTime() - this.startTimeShoot > 500) {
             this.canShoot = true;
         }
         if (EventKeyboard.Input.IsKeyDown(EventKeyboard.Input.keys.left) || EventMouse.Mouse.pressedClics.left) {
@@ -43,7 +40,7 @@ var MainScene = (function (_super) {
         if (EventKeyboard.Input.IsKeyDown(EventKeyboard.Input.keys.space) && this.canShoot && !this.shipManager.onSwitch) {
             var ships = this.shipManager.GetShipByAngle(0);
             for (var key in ships) {
-                ships[key].AddMissile(new Ball(ships[key].pos, ships[key].color));
+                ships[key].AddMissile(new Ball({ x: ships[key].x + 45, y: ships[key].y }, ships[key].color, 'top'));
             }
             this.startTimeShoot = new Date().getTime();
             this.canShoot = false;
@@ -63,5 +60,5 @@ var MainScene = (function (_super) {
         this.Clear();
     };
     return MainScene;
-}(Scene));
+})(Scene);
 //# sourceMappingURL=Main.js.map

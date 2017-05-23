@@ -1,3 +1,7 @@
+/**
+Créer par Jimmy Latour, 2016
+http://labodudev.fr
+*/
 var Clickable = (function () {
     function Clickable(pos, offset, size) {
         this.pos = pos;
@@ -21,5 +25,5 @@ var Clickable = (function () {
     };
     Clickable.prototype.Clear = function () { };
     return Clickable;
-}());
+})();
 //# sourceMappingURL=Clickable.js.map

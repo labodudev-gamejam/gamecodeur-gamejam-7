@@ -1,45 +1,43 @@
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
+/**
+Créer par Jimmy Latour, 2017
+http://jimmylatour.com
+*/
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
 var Ship = (function (_super) {
     __extends(Ship, _super);
     function Ship(image, pos, zone, angle, color, shipManager) {
-        var _this = _super.call(this, image, pos) || this;
-        _this.image = image;
-        _this.pos = pos;
-        _this.zone = zone;
-        _this.angle = angle;
-        _this.color = color;
-        _this.shipManager = shipManager;
-        _this.grid = {
+        _super.call(this, image, pos);
+        this.image = image;
+        this.pos = pos;
+        this.zone = zone;
+        this.angle = angle;
+        this.color = color;
+        this.shipManager = shipManager;
+        this.grid = {
             x: 0,
             y: 0
         };
-        _this.x = 0;
-        _this.y = 0;
-        _this.x1 = 0;
-        _this.y1 = 0;
-        _this.x2 = 0;
-        _this.y2 = 0;
-        _this.f = 0;
-        _this.speed = 0;
-        _this.dist = 0;
-        _this.steps = 200;
-        _this.onSwitch = false;
-        _this.direction = 0;
-        _this.balls = [];
-        _this.grid.x = pos.x;
-        _this.grid.y = pos.y;
-        _this.x = pos.x * 100;
-        _this.y = pos.y * 80;
-        return _this;
+        this.x = 0;
+        this.y = 0;
+        this.x1 = 0;
+        this.y1 = 0;
+        this.x2 = 0;
+        this.y2 = 0;
+        this.f = 0;
+        this.speed = 0;
+        this.dist = 0;
+        this.steps = 200;
+        this.onSwitch = false;
+        this.direction = 0;
+        this.balls = [];
+        this.grid.x = pos.x;
+        this.grid.y = pos.y;
+        this.x = pos.x * 100;
+        this.y = pos.y * 80;
     }
     Ship.prototype.GoSwitch = function (x, y, direction) {
         if (!this.shipManager.onSwitch && !this.onSwitch && this.f == 0) {
@@ -94,10 +92,8 @@ var Ship = (function (_super) {
     Ship.prototype.Clear = function () {
     };
     Ship.prototype.AddMissile = function (ball) {
-        ball.pos.x = this.x + 45;
-        ball.pos.y = this.y;
         this.balls.push(ball);
     };
     return Ship;
-}(Sprite));
+})(Sprite);
 //# sourceMappingURL=Ship.js.map

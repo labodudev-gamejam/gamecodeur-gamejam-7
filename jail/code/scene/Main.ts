@@ -10,7 +10,6 @@ class MainScene extends Scene {
 	private ia: IA = undefined;
 	private canShoot: boolean = true;
 	private startTimeShoot: number = 0;
-	private reloadTime: number = 0;
   constructor() {
     super();
 
@@ -29,7 +28,7 @@ class MainScene extends Scene {
   public Update(deltaTime: number):void {
     super.Update(deltaTime);
 
-		if (new Date().getTime() - this.startTimeShoot > 1000 ) {
+		if (new Date().getTime() - this.startTimeShoot > 500 ) {
 			this.canShoot = true;
 		}
 
@@ -44,7 +43,7 @@ class MainScene extends Scene {
 		if (EventKeyboard.Input.IsKeyDown(EventKeyboard.Input.keys.space) && this.canShoot && !this.shipManager.onSwitch ) {
 			var ships = this.shipManager.GetShipByAngle( 0 );
 			for ( var key in ships ) {
-				ships[key].AddMissile( new Ball( ships[key].pos, ships[key].color ) );
+				ships[key].AddMissile( new Ball( {x: ships[key].x + 45, y: ships[key].y}, ships[key].color, 'top' ) );
 			}
 
 			this.startTimeShoot = new Date().getTime();

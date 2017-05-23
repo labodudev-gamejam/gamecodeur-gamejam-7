@@ -1,11 +1,21 @@
+/**
+Créer par Jimmy Latour, 2017
+http://jimmylatour.com
+*/
 var Ball = (function () {
-    function Ball(pos, color) {
+    function Ball(pos, color, direction) {
         this.pos = pos;
         this.color = color;
-        this.speed = 2;
+        this.direction = direction;
+        this.speed = 500;
     }
     Ball.prototype.Update = function (deltaTime) {
-        this.pos.y--;
+        if (this.direction === 'down') {
+            this.pos.y += this.speed * deltaTime;
+        }
+        else {
+            this.pos.y -= this.speed * deltaTime;
+        }
     };
     Ball.prototype.Draw = function (context) {
         context.save();
@@ -21,5 +31,5 @@ var Ball = (function () {
     Ball.prototype.Clear = function () {
     };
     return Ball;
-}());
+})();
 //# sourceMappingURL=Ball.js.map

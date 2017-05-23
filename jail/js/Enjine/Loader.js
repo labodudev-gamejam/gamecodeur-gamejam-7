@@ -1,3 +1,8 @@
+/**
+Créer par Jimmy Latour, 2016
+http://labodudev.fr
+Appelle les méthodes Load des Objets global Ressources.Images et Ressources.Sounds
+*/
 var Loader = (function () {
     function Loader() {
     }
@@ -11,5 +16,5 @@ var Loader = (function () {
         });
     };
     return Loader;
-}());
+})();
 //# sourceMappingURL=Loader.js.map

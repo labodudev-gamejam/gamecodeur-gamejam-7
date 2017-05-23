@@ -1,3 +1,7 @@
+/**
+Créer par Jimmy Latour, 2016
+http://labodudev.fr
+*/
 var Data;
 (function (Data) {
     var Sounds = (function () {
@@ -28,9 +32,9 @@ var Data;
             Data.Sounds.sounds[name][Data.Sounds.sounds[name].index++].play();
             return Data.Sounds.sounds[name].index;
         };
+        Sounds.sounds = [];
         return Sounds;
-    }());
-    Sounds.sounds = [];
+    })();
     Data.Sounds = Sounds;
 })(Data || (Data = {}));
 ;

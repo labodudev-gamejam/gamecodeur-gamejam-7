@@ -4,18 +4,21 @@ http://jimmylatour.com
 */
 
 class Ball {
-	private speed: number = 2;
+	private speed: number = 500;
   /**
   * Le constructeur initialise les collisions du personnage
   * @return {void}
   */
-  constructor(public pos: any, public color: string) {
-	}
+  constructor(public pos: any, public color: string, public direction: string) {}
   /**
   *
   */
 	public Update(deltaTime: number):any {
-    this.pos.y--;
+		if ( this.direction === 'down' ) {
+			this.pos.y += this.speed * deltaTime;
+		} else {
+	    this.pos.y -= this.speed * deltaTime;
+		}
   }
 
   /**

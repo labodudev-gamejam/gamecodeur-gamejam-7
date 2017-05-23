@@ -1,9 +1,14 @@
+/**
+Créer par Jimmy Latour, 2016
+http://labodudev.fr
+Le fichier boot du jeu: charge le canvas, et initialise l'objet "Loader" et "Timer"
+Gère la boucle principale du jeu
+*/
 var global = {
     application: undefined,
     canvas: undefined,
     width: 0,
-    height: 0
-};
+    height: 0 };
 var Application = (function () {
     function Application() {
         var _this = this;
@@ -48,5 +53,5 @@ var Application = (function () {
         window.close();
     };
     return Application;
-}());
+})();
 //# sourceMappingURL=Application.js.map

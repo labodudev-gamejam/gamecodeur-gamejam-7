@@ -1,3 +1,7 @@
+/**
+Créer par Jimmy Latour, 2017
+http://jimmylatour.com
+*/
 var SpawnManager = (function () {
     function SpawnManager(grid, shipManager) {
         this.grid = grid;
@@ -29,5 +33,5 @@ var SpawnManager = (function () {
     }
     SpawnManager.prototype.Clear = function () { };
     return SpawnManager;
-}());
+})();
 //# sourceMappingURL=SpawnManager.js.map
