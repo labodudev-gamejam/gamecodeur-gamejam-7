@@ -14,22 +14,23 @@ var Countdown = (function () {
         var _this = this;
         this.maxTime = time;
         this.time = time;
-        Data.Sounds.PlaySound("countdown", false);
         this.interval = setInterval(function () { _this.Update(); }, 1000);
     };
     Countdown.prototype.Update = function () {
         this.time--;
-        for (var key in this.objectToCall) {
-            this.objectToCall[key].Exec(this.maxTime - this.time);
+        if (this.objectToCall) {
+            for (var key in this.objectToCall) {
+                this.objectToCall[key].Exec(this.maxTime - this.time);
+            }
         }
         if (this.time <= 0 && this.endFuncToCall) {
             this.Clear();
-            this.endFuncToCall();
+            SceneManager.Manager.currentScene.Start();
         }
     };
     Countdown.prototype.Draw = function (context) {
         context.font = "30px Source Sans Pro Bold";
-        context.fillText("Temps restant: " + this.time, global.hWidth - 100, 50);
+        context.fillText(this.time, global.hWidth - 100, global.hHeight);
     };
     Countdown.prototype.Clear = function () {
         clearInterval(this.interval);

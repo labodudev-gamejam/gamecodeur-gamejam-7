@@ -17,42 +17,57 @@ var MainScene = (function (_super) {
         this.ia = undefined;
         this.canShoot = true;
         this.startTimeShoot = 0;
-        this.Start();
-    }
-    MainScene.prototype.Start = function () {
-        _super.prototype.Start.call(this);
+        this.started = false;
         this.grid = new Grid();
         this.shipManager = new ShipManager(this.grid);
         this.grid.SetShipManager(this.shipManager);
         this.spawnManager = new SpawnManager(this.grid, this.shipManager);
+        this.countdown = new Countdown();
+        this.countdown.SetEndFuncToCall(this.Start);
+        this.countdown.Start(5);
         this.ia = new IA(this.grid, this.shipManager);
+    }
+    MainScene.prototype.Start = function () {
+        _super.prototype.Start.call(this);
+        this.started = true;
     };
     MainScene.prototype.Update = function (deltaTime) {
         _super.prototype.Update.call(this, deltaTime);
-        if (new Date().getTime() - this.startTimeShoot > 500) {
-            this.canShoot = true;
-        }
-        if (EventKeyboard.Input.IsKeyDown(EventKeyboard.Input.keys.left) || EventMouse.Mouse.pressedClics.left) {
-            this.shipManager.GoSwitch('left', 9);
-        }
-        if (EventKeyboard.Input.IsKeyDown(EventKeyboard.Input.keys.right) || EventMouse.Mouse.pressedClics.right) {
-            this.shipManager.GoSwitch('right', 9);
-        }
-        if (EventKeyboard.Input.IsKeyDown(EventKeyboard.Input.keys.space) && this.canShoot && !this.shipManager.onSwitch) {
-            var ships = this.shipManager.GetShipByAngle(0);
-            for (var key in ships) {
-                ships[key].AddMissile(new Ball({ x: ships[key].x + 45, y: ships[key].y }, ships[key].color, 'top', this.grid));
+        if (this.shipManager && this.started) {
+            if (new Date().getTime() - this.startTimeShoot > 500) {
+                this.canShoot = true;
             }
-            this.startTimeShoot = new Date().getTime();
-            this.canShoot = false;
+            if (EventKeyboard.Input.IsKeyDown(EventKeyboard.Input.keys.left) || EventMouse.Mouse.pressedClics.left) {
+                this.shipManager.GoSwitch('left', 9);
+            }
+            if (EventKeyboard.Input.IsKeyDown(EventKeyboard.Input.keys.right) || EventMouse.Mouse.pressedClics.right) {
+                this.shipManager.GoSwitch('right', 9);
+            }
+            if (EventKeyboard.Input.IsKeyDown(EventKeyboard.Input.keys.space) && this.canShoot && !this.shipManager.onSwitch) {
+                var ships = this.shipManager.GetShipByAngle(0);
+                for (var key in ships) {
+                    ships[key].AddMissile(new Ball({ x: ships[key].x + 45, y: ships[key].y }, ships[key].color, 'top', this.grid));
+                }
+                this.startTimeShoot = new Date().getTime();
+                this.canShoot = false;
+            }
+            this.shipManager.Update(deltaTime);
         }
-        this.ia.Update(deltaTime);
-        this.shipManager.Update(deltaTime);
+        if (this.ia && this.started) {
+            this.ia.Update(deltaTime);
+        }
     };
     MainScene.prototype.Draw = function (context) {
         _super.prototype.Draw.call(this, context);
-        this.grid.Draw(context);
-        this.shipManager.Draw(context);
+        if (this.grid) {
+            this.grid.Draw(context);
+        }
+        if (this.shipManager) {
+            this.shipManager.Draw(context);
+        }
+        if (!this.started) {
+            this.countdown.Draw(context);
+        }
     };
     MainScene.prototype.Clear = function () {
         _super.prototype.Clear.call(this);
