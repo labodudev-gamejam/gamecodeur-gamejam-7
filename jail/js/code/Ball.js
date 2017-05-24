@@ -21,9 +21,13 @@ var Ball = (function () {
         this.grid.CheckColliderGridAndColor(this.pos, this.color);
         var brick = this.grid.CheckColliderBrickGridAndColor(this.pos, this.color);
         if (brick) {
-            if (brick.object && brick.object.toColor && brick.switchColor) {
-                this.ship.SetColor(brick.object.toColor);
-                brick.brickManager.Remove(brick.object);
+            if (brick.object) {
+                if (brick.object.toColor && brick.switchColor) {
+                    this.ship.SetColor(brick.object.toColor);
+                }
+                if (brick.destroy) {
+                    brick.brickManager.Remove(brick.object);
+                }
             }
             this.Clear();
         }

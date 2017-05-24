@@ -78,5 +78,13 @@ class SpawnManager {
 		));
 	}
 
+	public Exec():void {
+		setInterval(() => { this.Update(); }, 1000);
+	}
+
+	public Update():void {
+		console.log('ok');
+	}
+
   Clear():void {}
 }

@@ -26,6 +26,7 @@ var IA = (function () {
     }
     IA.prototype.Update = function (deltaTime) {
         if (new Date().getTime() - this.startTimeShoot > 1500) {
+            this.canShoot = true;
         }
         if (this.canShoot && !this.onSwitch) {
             var ships = this.shipManager.GetShipByAngle(180);

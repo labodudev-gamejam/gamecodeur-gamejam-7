@@ -28,7 +28,7 @@ class IA {
 
 	public Update(deltaTime: number):void {
 		if ( new Date().getTime() - this.startTimeShoot > 1500 ) {
-			// this.canShoot = true;
+			this.canShoot = true;
 		}
 
 		if ( this.canShoot && !this.onSwitch ) {

@@ -30,13 +30,18 @@ class MainScene extends Scene {
 
 		this.ia = new IA(this.grid, this.shipManager);
 
-		this.brickManager.Add( new BrickChangeColor({x:0, y:4}, 'blue', 'red', this.brickManager) );
-		this.brickManager.Add( new BrickChangeColor({x:0, y:5}, 'green', 'red', this.brickManager) );
+		this.brickManager.Add( new Brick({x:0, y:4}, 'blue', this.brickManager) );
+		this.brickManager.Add( new Brick({x:1, y:4}, 'green', this.brickManager) );
+		this.brickManager.Add( new Brick({x:2, y:4}, 'green', this.brickManager) );
+		this.brickManager.Add( new Brick({x:0, y:5}, 'red', this.brickManager) );
+		this.brickManager.Add( new Brick({x:1, y:5}, 'green', this.brickManager) );
+		this.brickManager.Add( new Brick({x:2, y:5}, 'blue', this.brickManager) );
   }
 
   public Start():void {
     super.Start();
 
+		this.spawnManager.Exec();
 		this.started = true;
 	}
 

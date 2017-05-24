@@ -31,6 +31,13 @@ var SpawnManager = (function () {
             y: 0
         }, Data.Object.ships['greenShip'], 180, "green", this.shipManager));
     }
+    SpawnManager.prototype.Exec = function () {
+        var _this = this;
+        setInterval(function () { _this.Update(); }, 1000);
+    };
+    SpawnManager.prototype.Update = function () {
+        console.log('ok');
+    };
     SpawnManager.prototype.Clear = function () { };
     return SpawnManager;
 })();

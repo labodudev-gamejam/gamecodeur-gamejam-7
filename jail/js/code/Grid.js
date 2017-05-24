@@ -29,11 +29,13 @@ var Grid = (function () {
                     return {
                         brickManager: this.brickManager,
                         switchColor: true,
+                        destroy: true,
                         object: this.brickManager.bricks[key]
                     };
                 }
                 return {
                     switchColor: false,
+                    destroy: false,
                     object: this.brickManager.bricks[key]
                 };
             }
