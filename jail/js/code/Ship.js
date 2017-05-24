@@ -105,8 +105,20 @@ var Ship = (function (_super) {
         delete this.direction;
         delete this.balls;
     };
+    Ship.prototype.SetColor = function (color) {
+        this.color = color;
+        this.zone = Data.Object.ships[color + 'Ship'];
+    };
     Ship.prototype.AddMissile = function (ball) {
         this.balls.push(ball);
+    };
+    Ship.prototype.RemoveMissile = function (ball) {
+        for (var key in this.balls) {
+            if (this.balls[key] == ball) {
+                var aKey = key;
+                this.balls.splice(aKey, 1);
+            }
+        }
     };
     return Ship;
 })(Sprite);

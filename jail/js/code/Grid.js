@@ -5,6 +5,7 @@ http://jimmylatour.com
 var Grid = (function () {
     function Grid() {
         this.shipManager = undefined;
+        this.brickManager = undefined;
     }
     Grid.prototype.GetElementInGrid = function (ships, x, y) {
         for (var key in ships) {
@@ -21,8 +22,29 @@ var Grid = (function () {
         }
         return undefined;
     };
+    Grid.prototype.CheckColliderBrickGridAndColor = function (pos, color) {
+        for (var key in this.brickManager.bricks) {
+            if (this.brickManager.bricks[key].grid.x == parseInt(pos.x / 100) && this.brickManager.bricks[key].grid.y == parseInt(pos.y / 80)) {
+                if (this.brickManager.bricks[key].color == color) {
+                    return {
+                        brickManager: this.brickManager,
+                        switchColor: true,
+                        object: this.brickManager.bricks[key]
+                    };
+                }
+                return {
+                    switchColor: false,
+                    object: this.brickManager.bricks[key]
+                };
+            }
+        }
+        return undefined;
+    };
     Grid.prototype.SetShipManager = function (shipManager) {
         this.shipManager = shipManager;
+    };
+    Grid.prototype.SetBrickManager = function (brickManager) {
+        this.brickManager = brickManager;
     };
     Grid.prototype.Update = function (deltaTime) {
     };

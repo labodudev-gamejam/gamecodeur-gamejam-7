@@ -13,6 +13,7 @@ var MainScene = (function (_super) {
         _super.call(this);
         this.grid = undefined;
         this.shipManager = undefined;
+        this.brickManager = undefined;
         this.spawnManager = undefined;
         this.ia = undefined;
         this.canShoot = true;
@@ -20,12 +21,16 @@ var MainScene = (function (_super) {
         this.started = false;
         this.grid = new Grid();
         this.shipManager = new ShipManager(this.grid);
+        this.brickManager = new BrickManager(this.grid);
         this.grid.SetShipManager(this.shipManager);
+        this.grid.SetBrickManager(this.brickManager);
         this.spawnManager = new SpawnManager(this.grid, this.shipManager);
         this.countdown = new Countdown();
         this.countdown.SetEndFuncToCall(this.Start);
-        this.countdown.Start(5);
+        this.countdown.Start(1);
         this.ia = new IA(this.grid, this.shipManager);
+        this.brickManager.Add(new BrickChangeColor({ x: 0, y: 4 }, 'blue', 'red', this.brickManager));
+        this.brickManager.Add(new BrickChangeColor({ x: 0, y: 5 }, 'green', 'red', this.brickManager));
     }
     MainScene.prototype.Start = function () {
         _super.prototype.Start.call(this);
@@ -46,7 +51,7 @@ var MainScene = (function (_super) {
             if (EventKeyboard.Input.IsKeyDown(EventKeyboard.Input.keys.space) && this.canShoot && !this.shipManager.onSwitch) {
                 var ships = this.shipManager.GetShipByAngle(0);
                 for (var key in ships) {
-                    ships[key].AddMissile(new Ball({ x: ships[key].x + 45, y: ships[key].y }, ships[key].color, 'top', this.grid));
+                    ships[key].AddMissile(new Ball({ x: ships[key].x + 45, y: ships[key].y }, ships[key].color, 'top', this.grid, ships[key]));
                 }
                 this.startTimeShoot = new Date().getTime();
                 this.canShoot = false;
@@ -64,6 +69,9 @@ var MainScene = (function (_super) {
         }
         if (this.shipManager) {
             this.shipManager.Draw(context);
+        }
+        if (this.brickManager) {
+            this.brickManager.Draw(context);
         }
         if (!this.started) {
             this.countdown.Draw(context);

@@ -5,6 +5,7 @@ http://jimmylatour.com
 
 class Grid {
 	private shipManager: ShipManager = undefined;
+	private brickManager: BrickManager = undefined;
   constructor() {
 
   }
@@ -28,8 +29,33 @@ class Grid {
 		return undefined;
 	}
 
+	public CheckColliderBrickGridAndColor(pos: any, color: string):any {
+		for(var key in this.brickManager.bricks) {
+			if ( this.brickManager.bricks[key].grid.x == parseInt(pos.x / 100) && this.brickManager.bricks[key].grid.y == parseInt(pos.y / 80) ) {
+				if ( this.brickManager.bricks[key].color == color ) {
+					return {
+						brickManager: this.brickManager,
+						switchColor: true,
+						object: this.brickManager.bricks[key]
+					};
+				}
+
+				return {
+					switchColor: false,
+					object: this.brickManager.bricks[key]
+				};
+			}
+		}
+
+		return undefined;
+	}
+
 	public SetShipManager(shipManager: ShipManager):void {
 		this.shipManager = shipManager;
+	}
+
+	public SetBrickManager(brickManager: BrickManager):void {
+		this.brickManager = brickManager;
 	}
 
   public Update(deltaTime: number):void {

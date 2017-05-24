@@ -154,7 +154,21 @@ class Ship extends Sprite {
 		delete this.balls;
   }
 
+	public SetColor( color: string ):void {
+		this.color = color;
+		this.zone = Data.Object.ships[color + 'Ship'];
+	}
+
 	public AddMissile(ball: Ball):void {
 		this.balls.push(ball);
 	}
+
+	public RemoveMissile(ball: Ball): void {
+    for (var key in this.balls) {
+      if (this.balls[key] == ball) {
+        let aKey: any = key;
+        this.balls.splice(aKey, 1);
+      }
+    }
+  }
 }

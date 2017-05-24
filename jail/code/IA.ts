@@ -27,14 +27,14 @@ class IA {
 	}
 
 	public Update(deltaTime: number):void {
-		if ( new Date().getTime() - this.startTimeShoot > 500 ) {
-			this.canShoot = true;
+		if ( new Date().getTime() - this.startTimeShoot > 1500 ) {
+			// this.canShoot = true;
 		}
 
 		if ( this.canShoot && !this.onSwitch ) {
 			var ships = this.shipManager.GetShipByAngle( 180 );
 			for ( var key in ships ) {
-				ships[key].AddMissile( new Ball( {x: ships[key].x + 45, y: ships[key].y + 80}, ships[key].color, 'down', this.grid ) );
+				ships[key].AddMissile( new Ball( {x: ships[key].x + 45, y: ships[key].y + 80}, ships[key].color, 'down', this.grid, ships[key] ) );
 			}
 
 			this.startTimeShoot = new Date().getTime();

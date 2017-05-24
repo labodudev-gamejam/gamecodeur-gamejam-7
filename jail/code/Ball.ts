@@ -9,7 +9,7 @@ class Ball {
   * Le constructeur initialise les collisions du personnage
   * @return {void}
   */
-  constructor(public pos: any, public color: string, public direction: string, public grid: Grid) {}
+  constructor(public pos: any, public color: string, public direction: string, public grid: Grid, public ship: Ship) {}
   /**
   *
   */
@@ -21,6 +21,15 @@ class Ball {
 		}
 
 		this.grid.CheckColliderGridAndColor(this.pos, this.color);
+		var brick = this.grid.CheckColliderBrickGridAndColor(this.pos, this.color );
+		if ( brick ) {
+			if ( brick.object && brick.object.toColor && brick.switchColor ) {
+				this.ship.SetColor( brick.object.toColor );
+				brick.brickManager.Remove(brick.object);
+			}
+			this.Clear();
+		}
+
   }
 
   /**
@@ -45,5 +54,6 @@ class Ball {
   * Nettoies toutes les variables
   */
   public Clear():void {
+		this.ship.RemoveMissile(this);
   }
 }
