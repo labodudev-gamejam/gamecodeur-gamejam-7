@@ -1,7 +1,3 @@
-/**
-Créer par Jimmy Latour, 2016
-http://labodudev.fr
-*/
 var Scene = (function () {
     function Scene() {
     }
@@ -11,5 +7,5 @@ var Scene = (function () {
     Scene.prototype.Clear = function () { };
     Scene.prototype.ChangeScene = function () { };
     return Scene;
-})();
+}());
 //# sourceMappingURL=Scene.js.map

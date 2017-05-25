@@ -27,6 +27,7 @@ class Ship extends Sprite {
 	private direction:number = 0;
 	private balls: Array<Ball> = [];
 	private cb: any;
+	private hasTarget: boolean = false;
   /**
   * Le constructeur initialise les collisions du personnage
   * @return {void}
@@ -36,7 +37,9 @@ class Ship extends Sprite {
 							public zone: any,
 							public angle: number,
 							public color: string,
-							public shipManager: ShipManager) {
+							public shipManager: ShipManager,
+							public brickManager: BrickManager,
+							public gridO: Grid) {
 			super(image, pos);
 
 			this.grid.x = pos.x;
@@ -171,4 +174,23 @@ class Ship extends Sprite {
       }
     }
   }
+
+	public SearchTarget():boolean {
+		for( var y = 0; y < (global['height'] / 80) + 1; y++ ) {
+			if ( y > 0 ) {
+				var element = this.gridO.GetElementInGrid( undefined, this.grid.x, y );
+				if( element ) {
+					if ( element.color === this.color ) {
+						console.log(element);
+						
+						return true;
+					}
+
+					if ( element.color != this.color ) {
+						return false;
+					}
+				}
+			}
+		}
+	}
 }

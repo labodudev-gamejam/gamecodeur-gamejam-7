@@ -22,7 +22,7 @@ class MainScene extends Scene {
 		this.brickManager = new BrickManager(this.grid);
 		this.grid.SetShipManager(this.shipManager);
 		this.grid.SetBrickManager(this.brickManager);
-		this.spawnManager = new SpawnManager(this.grid, this.shipManager);
+		this.spawnManager = new SpawnManager(this.grid, this.shipManager, this.brickManager);
 
 		this.countdown = new Countdown();
 		this.countdown.SetEndFuncToCall(this.Start);
@@ -32,7 +32,7 @@ class MainScene extends Scene {
 
 		this.brickManager.Add( new Brick({x:0, y:4}, 'blue', this.brickManager) );
 		this.brickManager.Add( new Brick({x:1, y:4}, 'green', this.brickManager) );
-		this.brickManager.Add( new Brick({x:2, y:4}, 'green', this.brickManager) );
+		this.brickManager.Add( new Brick({x:2, y:4}, 'red', this.brickManager) );
 		this.brickManager.Add( new Brick({x:0, y:5}, 'red', this.brickManager) );
 		this.brickManager.Add( new Brick({x:1, y:5}, 'green', this.brickManager) );
 		this.brickManager.Add( new Brick({x:2, y:5}, 'blue', this.brickManager) );

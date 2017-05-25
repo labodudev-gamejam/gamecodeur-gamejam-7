@@ -1,7 +1,3 @@
-/**
-Créer par Jimmy Latour, 2017
-http://jimmylatour.com
-*/
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
@@ -24,14 +20,14 @@ var MainScene = (function (_super) {
         this.brickManager = new BrickManager(this.grid);
         this.grid.SetShipManager(this.shipManager);
         this.grid.SetBrickManager(this.brickManager);
-        this.spawnManager = new SpawnManager(this.grid, this.shipManager);
+        this.spawnManager = new SpawnManager(this.grid, this.shipManager, this.brickManager);
         this.countdown = new Countdown();
         this.countdown.SetEndFuncToCall(this.Start);
         this.countdown.Start(1);
         this.ia = new IA(this.grid, this.shipManager);
         this.brickManager.Add(new Brick({ x: 0, y: 4 }, 'blue', this.brickManager));
         this.brickManager.Add(new Brick({ x: 1, y: 4 }, 'green', this.brickManager));
-        this.brickManager.Add(new Brick({ x: 2, y: 4 }, 'green', this.brickManager));
+        this.brickManager.Add(new Brick({ x: 2, y: 4 }, 'red', this.brickManager));
         this.brickManager.Add(new Brick({ x: 0, y: 5 }, 'red', this.brickManager));
         this.brickManager.Add(new Brick({ x: 1, y: 5 }, 'green', this.brickManager));
         this.brickManager.Add(new Brick({ x: 2, y: 5 }, 'blue', this.brickManager));
@@ -89,5 +85,5 @@ var MainScene = (function (_super) {
         this.Clear();
     };
     return MainScene;
-})(Scene);
+}(Scene));
 //# sourceMappingURL=Main.js.map

@@ -1,7 +1,3 @@
-/**
-Créer par Jimmy Latour, 2017
-http://jimmylatour.com
-*/
 var Ball = (function () {
     function Ball(pos, color, direction, grid, ship) {
         this.pos = pos;
@@ -47,5 +43,5 @@ var Ball = (function () {
         this.ship.RemoveMissile(this);
     };
     return Ball;
-})();
+}());
 //# sourceMappingURL=Ball.js.map

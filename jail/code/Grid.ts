@@ -10,10 +10,16 @@ class Grid {
 
   }
 
-	public GetElementInGrid(ships: Array<Ship>, x: number, y: number):Ship {
-		for(var key in ships) {
-			if ( ships[key].grid.x == x && ships[key].grid.y == y ) {
-				return ships[key];
+	public GetElementInGrid(ships: Array<Ship>, x: number, y: number):any {
+		for(var key in this.shipManager.ships) {
+			if ( this.shipManager.ships[key].grid.x == x && this.shipManager.ships[key].grid.y == y ) {
+				return this.shipManager.ships[key];
+			}
+		}
+
+		for(var key in this.brickManager.bricks) {
+			if ( this.brickManager.bricks[key].grid.x == x && this.brickManager.bricks[key].grid.y == y ) {
+				return this.brickManager.bricks[key];
 			}
 		}
 

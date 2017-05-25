@@ -1,7 +1,3 @@
-/**
-Créer par Jimmy Latour, 2017
-http://jimmylatour.com
-*/
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
@@ -29,5 +25,5 @@ var MenuScene = (function (_super) {
         this.Clear();
     };
     return MenuScene;
-})(Scene);
+}(Scene));
 //# sourceMappingURL=Menu.js.map

@@ -1,7 +1,3 @@
-/**
-Créer par Jimmy Latour, 2016
-http://labodudev.fr
-*/
 var BrickManager = (function () {
     function BrickManager(grid) {
         this.grid = grid;
@@ -30,5 +26,5 @@ var BrickManager = (function () {
     };
     BrickManager.prototype.Clear = function () { };
     return BrickManager;
-})();
+}());
 //# sourceMappingURL=BrickManager.js.map

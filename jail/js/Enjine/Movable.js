@@ -1,7 +1,3 @@
-/**
-Créer par Jimmy Latour, 2016
-http://labodudev.fr
-*/
 var Movable = (function () {
     function Movable(speed, speedAngle) {
         this.speed = speed;
@@ -19,5 +15,5 @@ var Movable = (function () {
     Movable.prototype.Clear = function () {
     };
     return Movable;
-})();
+}());
 //# sourceMappingURL=Movable.js.map

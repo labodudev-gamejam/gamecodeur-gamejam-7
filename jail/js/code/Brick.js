@@ -1,7 +1,3 @@
-/**
-Créer par Jimmy Latour, 2017
-http://jimmylatour.com
-*/
 var Brick = (function () {
     function Brick(pos, color, brickManager) {
         this.pos = pos;
@@ -30,5 +26,5 @@ var Brick = (function () {
     Brick.prototype.Clear = function () {
     };
     return Brick;
-})();
+}());
 //# sourceMappingURL=Brick.js.map

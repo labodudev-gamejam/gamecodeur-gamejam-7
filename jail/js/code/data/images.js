@@ -1,7 +1,3 @@
-/**
-Créer par Jimmy Latour, 2016
-http://labodudev.fr
-*/
 var Data;
 (function (Data) {
     var Images = (function () {
@@ -36,7 +32,7 @@ var Data;
         Images.backgrounds = [];
         Images.staticImages = [];
         return Images;
-    })();
+    }());
     Data.Images = Images;
 })(Data || (Data = {}));
 //# sourceMappingURL=Images.js.map

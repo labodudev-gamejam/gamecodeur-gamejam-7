@@ -1,7 +1,3 @@
-/**
-Créer par Jimmy Latour, 2017
-http://jimmylatour.com
-*/
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
@@ -9,7 +5,7 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 var Ship = (function (_super) {
     __extends(Ship, _super);
-    function Ship(image, pos, zone, angle, color, shipManager) {
+    function Ship(image, pos, zone, angle, color, shipManager, brickManager, gridO) {
         _super.call(this, image, pos);
         this.image = image;
         this.pos = pos;
@@ -17,6 +13,8 @@ var Ship = (function (_super) {
         this.angle = angle;
         this.color = color;
         this.shipManager = shipManager;
+        this.brickManager = brickManager;
+        this.gridO = gridO;
         this.grid = {
             x: 0,
             y: 0
@@ -34,6 +32,7 @@ var Ship = (function (_super) {
         this.onSwitch = false;
         this.direction = 0;
         this.balls = [];
+        this.hasTarget = false;
         this.grid.x = pos.x;
         this.grid.y = pos.y;
         this.x = pos.x * 100;
@@ -120,6 +119,22 @@ var Ship = (function (_super) {
             }
         }
     };
+    Ship.prototype.SearchTarget = function () {
+        for (var y = 0; y < (global['height'] / 80) + 1; y++) {
+            if (y > 0) {
+                var element = this.gridO.GetElementInGrid(undefined, this.grid.x, y);
+                if (element) {
+                    if (element.color === this.color) {
+                        console.log(element);
+                        return true;
+                    }
+                    if (element.color != this.color) {
+                        return false;
+                    }
+                }
+            }
+        }
+    };
     return Ship;
-})(Sprite);
+}(Sprite));
 //# sourceMappingURL=Ship.js.map

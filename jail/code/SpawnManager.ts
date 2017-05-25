@@ -4,7 +4,7 @@ http://jimmylatour.com
 */
 
 class SpawnManager {
-  constructor(public grid: Grid, public shipManager: ShipManager) {
+  constructor(public grid: Grid, public shipManager: ShipManager, public brickManager: BrickManager) {
 		this.shipManager.Add(new Ship(
 			Data.Images.spriteSheet,
 			{
@@ -14,7 +14,9 @@ class SpawnManager {
 			Data.Object.ships['redShip'],
 			0,
 			"red",
-			this.shipManager
+			this.shipManager,
+      this.brickManager,
+      this.grid
 		));
 
 		this.shipManager.Add(new Ship(
@@ -26,7 +28,9 @@ class SpawnManager {
 			Data.Object.ships['blueShip'],
 			0,
 			"blue",
-			this.shipManager
+			this.shipManager,
+      this.brickManager,
+      this.grid
 		));
 
 		this.shipManager.Add(new Ship(
@@ -38,7 +42,9 @@ class SpawnManager {
 			Data.Object.ships['greenShip'],
 			0,
 			"green",
-			this.shipManager
+			this.shipManager,
+      this.brickManager,
+      this.grid
 		));
 
 		this.shipManager.Add(new Ship(
@@ -50,7 +56,9 @@ class SpawnManager {
 			Data.Object.ships['redShip'],
 			180,
 			"red",
-			this.shipManager
+			this.shipManager,
+      this.brickManager,
+      this.grid
 		));
 
 		this.shipManager.Add(new Ship(
@@ -62,7 +70,9 @@ class SpawnManager {
 			Data.Object.ships['blueShip'],
 			180,
 			"blue",
-			this.shipManager
+			this.shipManager,
+      this.brickManager,
+      this.grid
 		));
 
 		this.shipManager.Add(new Ship(
@@ -74,7 +84,9 @@ class SpawnManager {
 			Data.Object.ships['greenShip'],
 			180,
 			"green",
-			this.shipManager
+			this.shipManager,
+      this.brickManager,
+      this.grid
 		));
 	}
 
