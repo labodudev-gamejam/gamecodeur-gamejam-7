@@ -16,5 +16,17 @@
     "y": 0,
     "width": 99,
     "height": 75
-  }
+  },
+	"asteroid": {
+		"x": 327,
+		"y": 452,
+		"width": 97,
+		"height": 96
+	},
+	"asteroid2": {
+		"x": 0,
+		"y": 521,
+		"width": 120,
+		"height": 96
+	}
 }

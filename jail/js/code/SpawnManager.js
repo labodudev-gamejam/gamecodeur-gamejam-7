@@ -33,7 +33,6 @@ var SpawnManager = (function () {
         setInterval(function () { _this.Update(); }, 1000);
     };
     SpawnManager.prototype.Update = function () {
-        console.log('ok');
     };
     SpawnManager.prototype.Clear = function () { };
     return SpawnManager;

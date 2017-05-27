@@ -95,7 +95,6 @@ class SpawnManager {
 	}
 
 	public Update():void {
-		console.log('ok');
 	}
 
   Clear():void {}

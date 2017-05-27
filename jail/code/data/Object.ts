@@ -1,11 +1,12 @@
 /**
-Créer par Jimmy Latour, 2016
-http://labodudev.fr
+Créer par Jimmy Latour, 2017
+http://jimmylatour.com
 */
 
 module Data {
   export class Object {
-    static ships: any = undefined;
+    static element: any = undefined;
+    static map: any = undefined;
 
     static Load(cb: () => void):void {
       Data.Object.LoadJSON(() => {
@@ -13,11 +14,15 @@ module Data {
       });
     }
 
-    static LoadJSON(cb: () => void):void {
+		static LoadJSON(cb: () => void):void {
       Data.JSONLoader.Exec('jail/json/spritesheet.json', (data: Array<any>) => {
-        Data.Object.ships = data;
-        cb();
+        Data.Object.element = data;
+				Data.JSONLoader.Exec('jail/json/map.json', (data: Array<any>) => {
+	        Data.Object.map = data;
+					cb();
+	      });
       });
+
     }
   }
 }

@@ -4,6 +4,7 @@ http://labodudev.fr
 */
 
 class Scene {
+	protected spriteManager: SpriteManager = new SpriteManager();
   /**
    * Ajoutes buttonExit dans spriteManager
    * @return {void} nothing
@@ -12,9 +13,13 @@ class Scene {
 
   public Start():void {}
 
-  public Update(delta: number):void {}
+  public Update(delta: number):void {
+		this.spriteManager.Update(delta);
+	}
 
-  public Draw(context: any):void {}
+  public Draw(context: any):void {
+		this.spriteManager.Draw(context);
+	}
 
   public Clear():void {}
 

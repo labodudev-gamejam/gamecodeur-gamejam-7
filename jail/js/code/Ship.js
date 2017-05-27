@@ -125,7 +125,6 @@ var Ship = (function (_super) {
                 var element = this.gridO.GetElementInGrid(undefined, this.grid.x, y);
                 if (element) {
                     if (element.color === this.color) {
-                        console.log(element);
                         return true;
                     }
                     if (element.color != this.color) {

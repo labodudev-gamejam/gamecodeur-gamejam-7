@@ -10,11 +10,15 @@ var Data;
         };
         Object.LoadJSON = function (cb) {
             Data.JSONLoader.Exec('jail/json/spritesheet.json', function (data) {
-                Data.Object.ships = data;
-                cb();
+                Data.Object.element = data;
+                Data.JSONLoader.Exec('jail/json/map.json', function (data) {
+                    Data.Object.map = data;
+                    cb();
+                });
             });
         };
-        Object.ships = undefined;
+        Object.element = undefined;
+        Object.map = undefined;
         return Object;
     }());
     Data.Object = Object;
