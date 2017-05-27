@@ -4,6 +4,7 @@ http://jimmylatour.com
 */
 
 class Ship extends Sprite {
+	public color: string = '';
   constructor(
 		public image: any,
 		public pos: any) {
@@ -21,7 +22,9 @@ class Ship extends Sprite {
 	}
 
   public Shoot():void {
-    console.log('shoot');
+		let missile = new Missile(Data.Images.spriteSheet, {x: this.pos.x + this.offset.x, y: this.pos.y - this.offset.y + 10});
+		missile.SetZone(Data.Object.element[this.color + 'Missile']);
+		global['missileManager'].Add(missile);
   }
 
 	public Clear():void {

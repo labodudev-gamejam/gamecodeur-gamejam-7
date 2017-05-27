@@ -21,7 +21,7 @@ class Map {
 			sprite.tag = 'asteroid';
 			sprite.scale.x = 0.8;
 			sprite.scale.y = 0.8;
-			sprite.speedAngle = (Math.random() * 10) + 2;
+			sprite.speedAngle = (Math.random() * 10) + 10;
 			sprite.SetZone(Data.Object.element[Data.Object.map[key].name]);
 			global['spriteManager'].Add(sprite);
 		}

@@ -9,6 +9,7 @@ var Ship = (function (_super) {
         _super.call(this, image, pos);
         this.image = image;
         this.pos = pos;
+        this.color = '';
     }
     Ship.prototype.Update = function (deltaTime) {
         this.GridToCoordinate();
@@ -18,7 +19,9 @@ var Ship = (function (_super) {
         _super.prototype.Draw.call(this, context);
     };
     Ship.prototype.Shoot = function () {
-        console.log('shoot');
+        var missile = new Missile(Data.Images.spriteSheet, { x: this.pos.x + this.offset.x, y: this.pos.y - this.offset.y + 10 });
+        missile.SetZone(Data.Object.element[this.color + 'Missile']);
+        global['missileManager'].Add(missile);
     };
     Ship.prototype.Clear = function () {
     };

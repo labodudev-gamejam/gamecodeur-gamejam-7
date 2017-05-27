@@ -34,5 +34,17 @@
     "y": 206,
     "width": 13,
     "height": 57
+  },
+  "redMissile": {
+    "x": 843,
+    "y": 789,
+    "width": 13,
+    "height": 57
+  },
+  "greenMissile": {
+    "x": 845,
+    "y": 0,
+    "width": 13,
+    "height": 57
   }
 }

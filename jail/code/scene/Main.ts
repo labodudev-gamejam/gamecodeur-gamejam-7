@@ -11,6 +11,7 @@ class MainScene extends Scene {
 
 		global['map'] = new Map();
 		global['grid'] = new Grid();
+		global['missileManager'] = new MissileManager();
 
 		this.player = new Player();
 		this.ia = new IA();
@@ -25,6 +26,7 @@ class MainScene extends Scene {
 
 		this.player.Update(deltaTime);
 		this.ia.Update(deltaTime);
+		global['missileManager'].Update(deltaTime);
 		global['map'].Update(deltaTime);
 	}
 
@@ -32,6 +34,8 @@ class MainScene extends Scene {
 		global['grid'].Draw(context);
 
 		super.Draw(context);
+
+		global['missileManager'].Draw(context);
 	}
 
 	public Clear():void {

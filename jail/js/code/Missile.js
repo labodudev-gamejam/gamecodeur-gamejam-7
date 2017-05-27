@@ -9,10 +9,11 @@ var Missile = (function (_super) {
         _super.call(this, image, pos);
         this.image = image;
         this.pos = pos;
+        this.speed = 500;
     }
     Missile.prototype.Update = function (deltaTime) {
-        this.pos.y--;
         _super.prototype.Update.call(this, deltaTime);
+        this.pos.y -= this.speed * deltaTime;
     };
     Missile.prototype.Draw = function (context) {
         _super.prototype.Draw.call(this, context);

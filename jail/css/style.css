@@ -8,4 +8,9 @@ canvas {
 	width: 300px;
 	height: 700px;
 	z-index: 100;
+	background: url( '../images/blue.png');
+	background-repeat: repeat-x;
+	background-repeat: repeat-y;
+	background-position: center;
+	background-size: contain;
 }

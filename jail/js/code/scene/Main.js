@@ -11,6 +11,7 @@ var MainScene = (function (_super) {
         this.ia = undefined;
         global['map'] = new Map();
         global['grid'] = new Grid();
+        global['missileManager'] = new MissileManager();
         this.player = new Player();
         this.ia = new IA();
     }
@@ -21,11 +22,13 @@ var MainScene = (function (_super) {
         _super.prototype.Update.call(this, deltaTime);
         this.player.Update(deltaTime);
         this.ia.Update(deltaTime);
+        global['missileManager'].Update(deltaTime);
         global['map'].Update(deltaTime);
     };
     MainScene.prototype.Draw = function (context) {
         global['grid'].Draw(context);
         _super.prototype.Draw.call(this, context);
+        global['missileManager'].Draw(context);
     };
     MainScene.prototype.Clear = function () {
         _super.prototype.Clear.call(this);

@@ -4,6 +4,7 @@ http://jimmylatour.com
 */
 
 class Missile extends Sprite {
+	private speed: number = 500;
   constructor(
 		public image: any,
 		public pos: any) {
@@ -12,8 +13,9 @@ class Missile extends Sprite {
 	}
 
 	public Update(deltaTime: number):void {
-    this.pos.y--;
 		super.Update(deltaTime);
+
+		this.pos.y -= this.speed * deltaTime;
 	}
 
 	public Draw(context: any):void {
