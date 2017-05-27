@@ -4,21 +4,22 @@ http://labodudev.fr
 */
 
 class Scene {
-	protected spriteManager: SpriteManager = new SpriteManager();
   /**
    * Ajoutes buttonExit dans spriteManager
    * @return {void} nothing
    */
-  constructor() {}
+  constructor() {
+		global['spriteManager'] = new SpriteManager();
+	}
 
   public Start():void {}
 
   public Update(delta: number):void {
-		this.spriteManager.Update(delta);
+		global['spriteManager'].Update(delta);
 	}
 
   public Draw(context: any):void {
-		this.spriteManager.Draw(context);
+		global['spriteManager'].Draw(context);
 	}
 
   public Clear():void {}

@@ -48,4 +48,15 @@ class SpriteManager {
         this.listSprite["body"][i].Resize();
     }
   }
+
+  public GetByTag(tag: string):Array<Sprite> {
+    var elements: Array<Sprite> = [];
+    for(var key in this.listSprite) {
+      if(this.listSprite[key].tag === tag) {
+        elements.push(this.listSprite[key]);
+      }
+    }
+
+    return elements;
+  }
 }

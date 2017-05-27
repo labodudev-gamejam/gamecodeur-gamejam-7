@@ -4,13 +4,16 @@ http://jimmylatour.com
 */
 
 class MainScene extends Scene {
-	private map: Map = undefined;
-	private grid: Grid = undefined;
+	private player: Player = undefined;
+	private ia: IA = undefined;
 	constructor() {
 		super();
 
-		this.map = new Map(this.spriteManager);
-		this.grid = new Grid();
+		global['map'] = new Map();
+		global['grid'] = new Grid();
+
+		this.player = new Player();
+		this.ia = new IA();
 	}
 
 	public Start():void {
@@ -19,10 +22,14 @@ class MainScene extends Scene {
 
 	public Update(deltaTime: number):void {
 		super.Update(deltaTime);
+
+		this.player.Update(deltaTime);
+		this.ia.Update(deltaTime);
+		global['map'].Update(deltaTime);
 	}
 
 	public Draw(context: any):void {
-		this.grid.Draw(context);
+		global['grid'].Draw(context);
 
 		super.Draw(context);
 	}

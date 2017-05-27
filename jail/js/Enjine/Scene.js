@@ -1,13 +1,13 @@
 var Scene = (function () {
     function Scene() {
-        this.spriteManager = new SpriteManager();
+        global['spriteManager'] = new SpriteManager();
     }
     Scene.prototype.Start = function () { };
     Scene.prototype.Update = function (delta) {
-        this.spriteManager.Update(delta);
+        global['spriteManager'].Update(delta);
     };
     Scene.prototype.Draw = function (context) {
-        this.spriteManager.Draw(context);
+        global['spriteManager'].Draw(context);
     };
     Scene.prototype.Clear = function () { };
     Scene.prototype.ChangeScene = function () { };

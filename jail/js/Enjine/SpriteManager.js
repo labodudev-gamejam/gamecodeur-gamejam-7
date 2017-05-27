@@ -33,6 +33,15 @@ var SpriteManager = (function () {
             this.listSprite["body"][i].Resize();
         }
     };
+    SpriteManager.prototype.GetByTag = function (tag) {
+        var elements = [];
+        for (var key in this.listSprite) {
+            if (this.listSprite[key].tag === tag) {
+                elements.push(this.listSprite[key]);
+            }
+        }
+        return elements;
+    };
     return SpriteManager;
 }());
 //# sourceMappingURL=SpriteManager.js.map

@@ -7,19 +7,24 @@ var MainScene = (function (_super) {
     __extends(MainScene, _super);
     function MainScene() {
         _super.call(this);
-        this.map = undefined;
-        this.grid = undefined;
-        this.map = new Map(this.spriteManager);
-        this.grid = new Grid();
+        this.player = undefined;
+        this.ia = undefined;
+        global['map'] = new Map();
+        global['grid'] = new Grid();
+        this.player = new Player();
+        this.ia = new IA();
     }
     MainScene.prototype.Start = function () {
         _super.prototype.Start.call(this);
     };
     MainScene.prototype.Update = function (deltaTime) {
         _super.prototype.Update.call(this, deltaTime);
+        this.player.Update(deltaTime);
+        this.ia.Update(deltaTime);
+        global['map'].Update(deltaTime);
     };
     MainScene.prototype.Draw = function (context) {
-        this.grid.Draw(context);
+        global['grid'].Draw(context);
         _super.prototype.Draw.call(this, context);
     };
     MainScene.prototype.Clear = function () {

@@ -1,6 +1,6 @@
 /**
-Créer par Jimmy Latour, 2016
-http://labodudev.fr
+Créer par Jimmy Latour, 2017
+http:/jimmylatour.com
 Le fichier boot du jeu: charge le canvas, et initialise l'objet "Loader" et "Timer"
 Gère la boucle principale du jeu
 */
